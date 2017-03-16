@@ -1,3 +1,4 @@
+import { browser } from 'protractor';
 import { NgxStarterKitPage } from './app.po';
 
 describe('app', () => {
@@ -5,6 +6,12 @@ describe('app', () => {
 
   beforeEach(() => {
     page = new NgxStarterKitPage();
+  });
+
+  it('should display login page and login into app', () => {
+    page.navigateTo();
+    expect(browser.getCurrentUrl()).toContain('/login');
+    page.login();
   });
 
   it('should display hello message', () => {

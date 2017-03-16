@@ -1,7 +1,16 @@
 {
-  "APP_NAME": "Starter Kit",
+  "APP_NAME": "ngX Starter Kit",
   "Version": "Version",
   "Home": "Accueil",
   "About": "A propos",
+  "Logged in as": "Connecté en tant que",
+  "Logout": "Déconnexion",
+  "Username": "Identifiant",
+  "Password": "Mot de passe",
+  "Username or password incorrect.": "Identifiant ou mot de passe incorrect.",
+  "Username is required": "Identifiant requis",
+  "Password is required": "Mot de passe requis",
+  "Remember me": "Rester connecté",
+  "Login": "Connexion",
   "Hello world !": "Bonjour le monde !"
 }

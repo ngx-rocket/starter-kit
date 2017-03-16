@@ -6,8 +6,17 @@
 import { browser, element, by } from 'protractor';
 
 export class NgxStarterKitPage {
+  usernameField = element(by.css('[formControlName="username"]'));
+  passwordField = element(by.css('[formControlName="password"]'));
+  loginButton = element(by.css('button[type="submit"]'));
   navigateTo() {
     return browser.get('/');
+  }
+
+  login() {
+    this.usernameField.sendKeys('test');
+    this.passwordField.sendKeys('123');
+    this.loginButton.click();
   }
 
   getParagraphText() {
