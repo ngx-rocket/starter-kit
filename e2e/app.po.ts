@@ -5,10 +5,11 @@
 
 import { browser, element, by } from 'protractor';
 
-export class NgxStarterKitPage {
+export class AppPage {
   usernameField = element(by.css('[formControlName="username"]'));
   passwordField = element(by.css('[formControlName="password"]'));
   loginButton = element(by.css('button[type="submit"]'));
+
   navigateTo() {
     return browser.get('/');
   }

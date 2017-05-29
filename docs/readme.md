@@ -1,4 +1,4 @@
-# ngx Starter Kit
+# ngX Rocket
 
 Welcome to the project documentation!
 
