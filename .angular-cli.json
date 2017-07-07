@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "ng-x-rocket"
+    "name": "ngx-rocket"
   },
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "www",
       "assets": [
         "assets",
         "translations",

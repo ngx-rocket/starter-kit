@@ -7,8 +7,9 @@
 @import "theme/theme-variables";
 
 // 3rd party libraries
-@import "~bootstrap/scss/bootstrap";
-@import "~font-awesome/scss/font-awesome.scss";
+@import "~ionic-angular/themes/normalize";
+@import "~ionic-angular/themes/ionic.components";
+@import "~ionic-angular/themes/util";
 
 // Theme customization
 @import "theme/theme";
