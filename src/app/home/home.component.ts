@@ -3,7 +3,9 @@ import 'rxjs/add/operator/finally';
 import { Component, OnInit } from '@angular/core';
 
 import { QuoteService } from './quote.service';
+import { IonicPage } from 'ionic-angular';
 
+@IonicPage()
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

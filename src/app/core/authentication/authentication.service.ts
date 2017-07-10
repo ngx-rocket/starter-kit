@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
+import { Logger } from '../logger.service';
+
 export interface Credentials {
   // Customize received credentials here
   username: string;
@@ -13,6 +15,7 @@ export interface LoginContext {
   remember?: boolean;
 }
 
+const log = new Logger('AuthenticationService');
 const credentialsKey = 'credentials';
 
 /**
@@ -59,6 +62,18 @@ export class AuthenticationService {
    */
   isAuthenticated(): boolean {
     return !!this.credentials;
+  }
+
+  checkAuthentication(): boolean {
+    if (this.isAuthenticated()) {
+      return true;
+    }
+
+    log.debug('Not authenticated, redirecting...');
+
+    // TODO: redirect
+
+    return false;
   }
 
   /**
