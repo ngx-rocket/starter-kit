@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { IonicPageModule } from 'ionic-angular';
+import { IonicModule } from 'ionic-angular';
 
 import { AboutComponent } from './about.component';
 
@@ -9,7 +9,7 @@ import { AboutComponent } from './about.component';
   imports: [
     CommonModule,
     TranslateModule,
-    IonicPageModule.forChild(AboutComponent)
+    IonicModule
   ],
   entryComponents: [
     AboutComponent

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonicPage, Nav } from 'ionic-angular';
+import { Nav } from 'ionic-angular';
 
 import { extract } from '../core/i18n.service';
 import { HomeComponent } from '../home/home.component';
@@ -10,7 +10,6 @@ interface MenuItem {
   component: Component;
 }
 
-@IonicPage({ segment: 'menu' })
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',

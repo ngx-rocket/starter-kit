@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { IonicPageModule } from 'ionic-angular';
+import { IonicModule } from 'ionic-angular';
 
 import { CoreModule } from '../core/core.module';
 import { ShellComponent } from './shell.component';
@@ -17,7 +17,7 @@ import { LoginModule } from '../login/login.module';
     HomeModule,
     AboutModule,
     LoginModule,
-    IonicPageModule.forChild(ShellComponent)
+    IonicModule
   ],
   entryComponents: [
     ShellComponent
