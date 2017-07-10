@@ -11,6 +11,7 @@
         "assets",
         "translations",
         "favicon.ico",
+        "manifest.json",
         "robots.txt"
       ],
       "index": "index.html",

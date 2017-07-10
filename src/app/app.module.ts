@@ -11,10 +11,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { ShellModule } from './shell/shell.module';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { LoginModule } from './login/login.module';
+import { AppRoutingModule } from './app-routing.module';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -24,11 +25,11 @@ import { LoginModule } from './login/login.module';
     TranslateModule.forRoot(),
     CoreModule,
     SharedModule,
-    ShellModule,
     HomeModule,
     AboutModule,
     LoginModule,
     IonicModule.forRoot(AppComponent),
+    AppRoutingModule
   ],
   entryComponents: [AppComponent],
   declarations: [AppComponent],
@@ -36,6 +37,8 @@ import { LoginModule } from './login/login.module';
     StatusBar,
     SplashScreen,
     Keyboard,
+    // Needed as Ionic overrides default strategy, dunno why since they don't use angular router...
+    [Location, { provide: LocationStrategy, useClass: PathLocationStrategy}],
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   bootstrap: [IonicApp]

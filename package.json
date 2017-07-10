@@ -28,6 +28,7 @@
     "@angular/http": "^4.1.0",
     "@angular/platform-browser": "^4.1.0",
     "@angular/platform-browser-dynamic": "^4.1.0",
+    "@angular/router": "^4.1.0",
     "@ionic-native/core": "^3.9.2",
     "@ionic-native/keyboard": "^3.13.1",
     "@ionic-native/splash-screen": "^3.9.2",

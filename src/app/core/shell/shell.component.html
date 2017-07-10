@@ -9,11 +9,14 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <button menuClose ion-item *ngFor="let menuItem of menuItems" (click)="open(menuItem.component)">
-          <span translate>{{menuItem.title}}</span>
+        <button menuClose ion-item routerLink="/home" routerLinkActive="active">
+          <span translate>Home</span>
+        </button>
+        <button menuClose ion-item routerLink="/about" routerLinkActive="active">
+          <span translate>About</span>
         </button>
       </ion-list>
     </ion-content>
   </ion-menu>
-  <ion-nav main [root]="rootNav" #content swipeBackEnabled="false"></ion-nav>
+  <ion-nav main [root]="navRoot" #content swipeBackEnabled="false"></ion-nav>
 </ion-split-pane>

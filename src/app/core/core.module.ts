@@ -1,12 +1,16 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule, Http, XHRBackend, ConnectionBackend, RequestOptions } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { IonicModule } from 'ionic-angular';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { AuthenticationService } from './authentication/authentication.service';
 import { I18nService } from './i18n.service';
 import { HttpService } from './http/http.service';
 import { HttpCacheService } from './http/http-cache.service';
+import { ShellComponent } from './shell/shell.component';
+import { AuthenticationGuard } from './authentication/authentication.guard';
 
 export function createHttpService(backend: ConnectionBackend,
                                   defaultOptions: RequestOptions,
@@ -19,10 +23,19 @@ export function createHttpService(backend: ConnectionBackend,
     CommonModule,
     HttpModule,
     TranslateModule,
+    IonicModule,
+    RouterModule
+  ],
+  entryComponents: [
+    ShellComponent
+  ],
+  declarations: [
+    ShellComponent
   ],
   exports: [],
   providers: [
     AuthenticationService,
+    AuthenticationGuard,
     I18nService,
     HttpCacheService,
     {
