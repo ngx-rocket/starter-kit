@@ -1,7 +1,6 @@
 import 'rxjs/add/operator/finally';
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { environment } from '../../environments/environment';
@@ -23,8 +22,7 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   loginForm: FormGroup;
 
-  constructor(private router: Router,
-              private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
               private i18nService: I18nService,
               private authenticationService: AuthenticationService) {
     this.createForm();
@@ -41,7 +39,7 @@ export class LoginComponent implements OnInit {
       })
       .subscribe(credentials => {
         log.debug(`${credentials.username} successfully logged in`);
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       }, error => {
         log.debug(`Login error: ${error}`);
         this.error = error;

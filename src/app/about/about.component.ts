@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { IonicPage } from 'ionic-angular';
 
 import { environment } from '../../environments/environment';
 
+@IonicPage()
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
