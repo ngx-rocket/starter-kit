@@ -10,9 +10,6 @@ import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
   imports: [
     CommonModule,
     TranslateModule,
@@ -22,6 +19,9 @@ import { QuoteService } from './quote.service';
     HomeRoutingModule
   ],
   entryComponents: [
+    HomeComponent
+  ],
+  declarations: [
     HomeComponent
   ],
   providers: [
