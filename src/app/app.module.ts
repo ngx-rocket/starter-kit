@@ -38,7 +38,7 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     SplashScreen,
     Keyboard,
     // Needed as Ionic overrides default strategy, dunno why since they don't use angular router...
-    [Location, { provide: LocationStrategy, useClass: PathLocationStrategy}],
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   bootstrap: [IonicApp]
