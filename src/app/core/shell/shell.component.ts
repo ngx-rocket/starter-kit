@@ -1,7 +1,6 @@
 import 'rxjs/add/operator/filter';
 
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Nav } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 
 @Component({
