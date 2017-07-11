@@ -33,11 +33,11 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-    primary:    #488aff,
-    secondary:  #32db64,
-    danger:     #f53d3d,
-    light:      #f4f4f4,
-    dark:       #333
+  primary:    #488aff,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #333
 );
 
 
@@ -45,21 +45,21 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
+$text-input-ios-show-invalid-highlight:   true;
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$text-input-md-show-valid-highlight:      false;
 
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
 
-
+$text-input-wp-show-valid-highlight:      false;
 
 
 // App Theme

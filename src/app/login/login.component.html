@@ -1,60 +1,56 @@
-<div class="login-container bg-faded">
-  <div class="login-box">
-    <h1 translate>APP_NAME</h1>
-    <div>
-      <h6 class="d-inline-block">v{{version}}</h6>
-      <div class="d-inline-block ml-3" ngbDropdown>
-        <button id="language-dropdown" class="btn btn-sm btn-secondary" ngbDropdownToggle>
-          {{currentLanguage}}
-        </button>
-        <div class="dropdown-menu" aria-labelledby="language-dropdown">
-          <button class="dropdown-item" *ngFor="let language of languages" (click)="setLanguage(language)">
-            {{language}}
-          </button>
+<ion-content>
+  <div class="login-background"></div>
+  <ion-grid no-padding>
+    <ion-row justify-content-center no-padding>
+      <ion-col col-sm-8 col-lg-6 col-xl-4 align-self-center no-padding>
+        <div class="login-header" text-center>
+          <h1 translate>APP_NAME</h1>
+          <h6>v{{version}}</h6>
+          <ion-list color="primary" no-lines no-margin>
+            <ion-item color="primary">
+              <ion-label><span translate>Language</span></ion-label>
+              <ion-select [ngModel]="currentLanguage" (ngModelChange)="setLanguage($event)" interface="popover">
+                <ion-option *ngFor="let language of languages" [value]="language">{{language}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
         </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="card col-md-6 mt-3 mx-auto">
-        <div class="card-block">
-          <h4 class="card-title text-center">
-            <i class="fa fa-3x fa-user-circle-o text-muted"></i>
-          </h4>
+        <div class="login-container">
           <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
-            <div class="alert alert-danger" [hidden]="!error || isLoading" translate>
+            <div padding ion-text color="danger" [hidden]="!error || isLoading" translate>
               Username or password incorrect.
             </div>
-            <div class="form-group">
-              <label class="d-block">
-                <input type="text" class="form-control" formControlName="username"
-                       [placeholder]="'Username' | translate"/>
-                <span hidden translate>Username</span>
-                <small [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched"
-                       class="text-danger" translate>
-                  Username is required
-                </small>
-              </label>
-              <label class="d-block">
-                <input type="password" class="form-control" formControlName="password"
-                       [placeholder]="'Password' | translate" required/>
-                <span hidden translate>Password</span>
-                <small [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"
-                       class="text-danger" translate>
-                  Password is required
-                </small>
-              </label>
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" formControlName="remember"/>
-                <span translate>Remember me</span>
-              </label>
+            <ion-list>
+              <ion-item>
+                <ion-label floating>{{'Username' | translate}}</ion-label>
+                <ion-input type="text" formControlName="username"></ion-input>
+              </ion-item>
+              <div padding [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched"
+                     ion-text color="danger" translate>
+                Username is required
+              </div>
+              <ion-item>
+                <ion-label floating>{{'Password' | translate}}</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+              </ion-item>
+              <div padding [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"
+                     ion-text color="danger" translate>
+                Password is required
+              </div>
+              <ion-item padding-top no-lines>
+                <ion-label><span translate>Remember me</span></ion-label>
+                <ion-checkbox formControlName="remember"></ion-checkbox>
+              </ion-item>
+            </ion-list>
+            <div padding-horizontal>
+              <button type="submit" [disabled]="loginForm.invalid || isLoading" ion-button color="primary" block>
+                <ion-spinner color="light" [hidden]="isLoading" margin-right></ion-spinner>
+                <span translate>Login</span>
+              </button>
             </div>
-            <button class="btn btn-primary w-100" type="submit" translate [disabled]="loginForm.invalid || isLoading">
-              <i class="fa fa-cog fa-spin" [hidden]="!isLoading"></i>
-              <span translate>Login</span>
-            </button>
           </form>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

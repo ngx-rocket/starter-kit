@@ -1,28 +1,39 @@
-@import "src/theme/theme-variables";
+@import "../../theme/theme-variables";
 
-.login-container {
-  position: absolute;
+.grid, .row {
+  min-height: 100%;
+  flex-grow: 1;
+}
+
+.login-header, .login-background {
+  background: color($colors, primary);
+}
+
+.item-select .label-md, .login-header, .login-background {
+  color: color-contrast($colors, primary);
+}
+
+// Not working for now
+//.select-icon-inner {
+//  color: color-contrast($colors, primary);
+//}
+
+.login-background {
+  position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 50%;
 }
 
-.login-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 100%;
+.login-container {
+  background: $background-color;
+
+  .item {
+    @include padding-horizontal($content-margin, $content-margin);
+  }
 }
 
-.ng-invalid.ng-touched:not(form) {
-  //border-left: 4px solid $brand-danger;
+.list > .item-block:first-child {
+  border-top: none;
 }
-
-//@include media-breakpoint-down(xs) {
-//  .container {
-//    width: 100%;
-//  }
-//}
