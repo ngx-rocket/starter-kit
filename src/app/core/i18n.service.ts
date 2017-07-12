@@ -52,7 +52,15 @@ export class I18nService {
    */
   set language(language: string) {
     language = language || localStorage.getItem(languageKey);
-    const isSupportedLanguage = includes(this.supportedLanguages, language);
+    let isSupportedLanguage = includes(this.supportedLanguages, language);
+
+    // If no exact match is found, search without the region
+    if (!isSupportedLanguage) {
+      language = language.split('-')[0];
+      isSupportedLanguage = Boolean(this.supportedLanguages.find(
+        supportedLanguage => supportedLanguage.startsWith(language))
+      );
+    }
 
     // Fallback if language is not supported
     if (!isSupportedLanguage) {

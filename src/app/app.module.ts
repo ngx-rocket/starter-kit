@@ -7,6 +7,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Globalization } from '@ionic-native/globalization';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -37,6 +38,7 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     StatusBar,
     SplashScreen,
     Keyboard,
+    Globalization,
     // Needed as Ionic overrides default strategy, dunno why since they don't use angular router...
     { provide: LocationStrategy, useClass: PathLocationStrategy },
     { provide: ErrorHandler, useClass: IonicErrorHandler }

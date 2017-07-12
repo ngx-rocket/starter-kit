@@ -30,6 +30,7 @@
     "@angular/platform-browser-dynamic": "^4.1.0",
     "@angular/router": "^4.1.0",
     "@ionic-native/core": "^3.9.2",
+    "@ionic-native/globalization": "^4.0.0",
     "@ionic-native/keyboard": "^3.13.1",
     "@ionic-native/splash-screen": "^3.9.2",
     "@ionic-native/status-bar": "^3.9.2",
