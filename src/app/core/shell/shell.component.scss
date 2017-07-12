@@ -1,0 +1,15 @@
+@import "../../../theme/theme-variables";
+
+.profile {
+  background: color($colors, primary);
+}
+
+.profile-icon {
+  font-size: 6em;
+  color: color-contrast($colors, primary);
+}
+
+.profile-button {
+  border-color: color-contrast($colors, primary);
+  color: color-contrast($colors, primary);
+}

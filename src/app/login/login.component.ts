@@ -3,7 +3,7 @@ import 'rxjs/add/operator/finally';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { LoadingController } from 'ionic-angular';
+import { LoadingController, Platform } from 'ionic-angular';
 
 import { environment } from '../../environments/environment';
 import { Logger } from '../core/logger.service';
@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,
               private formBuilder: FormBuilder,
+              private platform: Platform,
               private loadingController: LoadingController,
               private i18nService: I18nService,
               private authenticationService: AuthenticationService) {
@@ -60,6 +61,10 @@ export class LoginComponent implements OnInit {
 
   get languages(): string[] {
     return this.i18nService.supportedLanguages;
+  }
+
+  get isWeb(): boolean {
+    return !this.platform.is('cordova');
   }
 
   private createForm() {

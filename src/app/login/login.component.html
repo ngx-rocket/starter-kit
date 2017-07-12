@@ -6,7 +6,7 @@
         <div class="login-header" text-center>
           <h1 translate>APP_NAME</h1>
           <h6>v{{version}}</h6>
-          <ion-list color="primary" no-lines no-margin>
+          <ion-list *ngIf="isWeb" color="primary" no-lines no-margin>
             <ion-item color="primary">
               <ion-label><span translate>Language</span></ion-label>
               <ion-select [ngModel]="currentLanguage" (ngModelChange)="setLanguage($event)" interface="popover">
