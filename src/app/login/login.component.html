@@ -17,7 +17,7 @@
         </div>
         <div class="login-container">
           <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
-            <div padding ion-text color="danger" [hidden]="!error || isLoading" translate>
+            <div padding ion-text color="danger" [hidden]="!error || loginForm.dirty" translate>
               Username or password incorrect.
             </div>
             <ion-list>
@@ -43,8 +43,7 @@
               </ion-item>
             </ion-list>
             <div padding-horizontal>
-              <button type="submit" [disabled]="loginForm.invalid || isLoading" ion-button color="primary" block>
-                <ion-spinner color="light" [hidden]="isLoading" margin-right></ion-spinner>
+              <button type="submit" [disabled]="loginForm.invalid" ion-button color="primary" block>
                 <span translate>Login</span>
               </button>
             </div>

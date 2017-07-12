@@ -1,9 +1,9 @@
 import 'rxjs/add/operator/finally';
-import 'rxjs/add/operator/delay';
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LoadingController } from 'ionic-angular';
 
 import { environment } from '../../environments/environment';
 import { Logger } from '../core/logger.service';
@@ -21,11 +21,11 @@ export class LoginComponent implements OnInit {
 
   version: string = environment.version;
   error: string = null;
-  isLoading = false;
   loginForm: FormGroup;
 
   constructor(private router: Router,
               private formBuilder: FormBuilder,
+              private loadingController: LoadingController,
               private i18nService: I18nService,
               private authenticationService: AuthenticationService) {
     this.createForm();
@@ -34,16 +34,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   login() {
-    this.isLoading = true;
+    const loading = this.loadingController.create();
+    loading.present();
     this.authenticationService.login(this.loginForm.value)
-      .delay(3000)
       .finally(() => {
-        this.isLoading = false;
         this.loginForm.markAsPristine();
+        loading.dismiss();
       })
       .subscribe(credentials => {
         log.debug(`${credentials.username} successfully logged in`);
-        this.router.navigate(['/']);
+        this.router.navigate(['/'], { replaceUrl: true });
       }, error => {
         log.debug(`Login error: ${error}`);
         this.error = error;
