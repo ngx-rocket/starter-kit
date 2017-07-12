@@ -13,10 +13,10 @@
   color: color-contrast($colors, primary);
 }
 
-// Not working for now
-//.select-icon-inner {
-//  color: color-contrast($colors, primary);
-//}
+// Not working???
+.select-md .select-icon .select-icon-inner {
+  color: color-contrast($colors, primary);
+}
 
 .login-background {
   position: fixed;
