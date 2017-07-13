@@ -9,7 +9,6 @@
       "outDir": "www",
       "assets": [
         "assets",
-        "translations",
         "favicon.ico",
         "manifest.json",
         "robots.txt"
