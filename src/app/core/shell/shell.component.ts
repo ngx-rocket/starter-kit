@@ -37,8 +37,8 @@ export class ShellComponent implements OnInit {
   }
 
   showProfileActions() {
-    let actionSheet = this.actionSheetController.create({ title: this.username });
-    let buttons = [
+    const actionSheet = this.actionSheetController.create({ title: this.username });
+    const buttons = [
       {
         text: this.translateService.instant('Logout'),
         icon: this.platform.is('ios') ? null : 'log-out',

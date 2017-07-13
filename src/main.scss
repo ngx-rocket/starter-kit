@@ -14,6 +14,7 @@
 // Included fixed version here because of https://github.com/ionic-team/ionic/issues/12284
 // @import "~ionic-angular/themes/ionic.components";
 
+/* stylelint-disable */
 @import
 "~ionic-angular/components/action-sheet/action-sheet",
 "~ionic-angular/components/action-sheet/action-sheet.ios",
@@ -254,6 +255,7 @@
 @import
 "~ionic-angular/fonts/noto-sans",
 "~ionic-angular/fonts/roboto";
+/* stylelint-enable */
 
 // Theme customization
 @import "theme/theme";

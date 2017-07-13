@@ -4,7 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Keyboard } from "@ionic-native/keyboard";
+import { Keyboard } from '@ionic-native/keyboard';
 import { Globalization } from '@ionic-native/globalization';
 
 import { AppComponent } from './app.component';

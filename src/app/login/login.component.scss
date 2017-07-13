@@ -1,15 +1,19 @@
 @import "../../theme/theme-variables";
 
-.grid, .row {
+.grid,
+.row {
   min-height: 100%;
   flex-grow: 1;
 }
 
-.login-header, .login-background {
+.login-header,
+.login-background {
   background: color($colors, primary);
 }
 
-.item-select .label-md, .login-header, .login-background {
+.item-select .label-md,
+.login-header,
+.login-background {
   color: color-contrast($colors, primary);
 }
 
