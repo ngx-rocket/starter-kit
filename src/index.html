@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <title>ngx rocket</title>
-  <base href="/"/>
+  <base href="./"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <meta name="msapplication-tap-highlight" content="no"/>
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
@@ -20,13 +20,9 @@
 
   <!-- Include Cordova script only when needed -->
   <script>
-    (function() {
-      if (!/^http/.test(location.protocol)) {
-        var c = document.createElement('script');
-        c.setAttribute('src', 'cordova.js');
-        document.body.appendChild(c);
-      }
-    })();
+    if (!/^http/.test(location.protocol)) {
+      document.write('<script src="cordova.js"><\/script>');
+    }
   </script>
 
   <!-- Ionic's root component and where the app will load -->
