@@ -9,7 +9,7 @@ describe('LoaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [IonicModule],
+        imports: [IonicModule.forRoot(LoaderComponent)],
         declarations: [LoaderComponent]
       })
       .compileComponents();

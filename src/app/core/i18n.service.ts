@@ -55,11 +55,10 @@ export class I18nService {
     let isSupportedLanguage = includes(this.supportedLanguages, language);
 
     // If no exact match is found, search without the region
-    if (!isSupportedLanguage) {
+    if (language && !isSupportedLanguage) {
       language = language.split('-')[0];
-      isSupportedLanguage = Boolean(this.supportedLanguages.find(
-        supportedLanguage => supportedLanguage.startsWith(language))
-      );
+      language = this.supportedLanguages.find(supportedLanguage => supportedLanguage.startsWith(language));
+      isSupportedLanguage = Boolean(language);
     }
 
     // Fallback if language is not supported

@@ -108,9 +108,9 @@ export class ShellComponent implements OnInit {
   }
 
   private updateNav(route: ActivatedRoute) {
-    // First child is always IonicApp component
+    // First component should always be IonicApp
     route = route.firstChild;
-    if (route.component === ShellComponent) {
+    if (route && route.component === ShellComponent) {
       route = route.firstChild;
       this.navRoot = route.component;
     }

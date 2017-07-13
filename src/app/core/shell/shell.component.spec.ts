@@ -1,10 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { AuthenticationService } from '../authentication/authentication.service';
 import { MockAuthenticationService } from '../authentication/authentication.service.mock';
 import { ShellComponent } from './shell.component';
 import { CoreModule } from '../core.module';
+import { IonicModule } from 'ionic-angular';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -14,6 +16,8 @@ describe('ShellComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
+        IonicModule.forRoot(ShellComponent),
+        RouterTestingModule,
         CoreModule
       ],
       providers: [

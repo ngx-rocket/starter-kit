@@ -114,7 +114,7 @@ describe('I18nService', () => {
       i18nService.language = newLanguage;
 
       // Assert
-      expect(translateService.use).toHaveBeenCalledWith(newLanguage);
+      expect(translateService.use).toHaveBeenCalledWith('fr-FR');
       expect(onLangChangeSpy).toHaveBeenCalledWith('fr-FR');
     });
 
