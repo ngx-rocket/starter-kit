@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { includes } from 'lodash';
 
+import { Logger } from './logger.service';
 import enUS from '../../translations/en-US.json';
 import frFR from '../../translations/fr-FR.json';
 
+const log = new Logger('I18nService');
 const languageKey = 'language';
 
 /**
@@ -51,7 +53,7 @@ export class I18nService {
    * @param {string} language The IETF language code to set.
    */
   set language(language: string) {
-    language = language || localStorage.getItem(languageKey);
+    language = language || localStorage.getItem(languageKey) || this.translateService.getBrowserCultureLang();
     let isSupportedLanguage = includes(this.supportedLanguages, language);
 
     // If no exact match is found, search without the region
@@ -66,6 +68,7 @@ export class I18nService {
       language = this.defaultLanguage;
     }
 
+    log.debug(`Language set to ${language}`);
     this.translateService.use(language);
   }
 

@@ -13,7 +13,6 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Globalization } from '@ionic-native/globalization';
 
 import { environment } from '../environments/environment';
 import { Logger } from './core/logger.service';
@@ -37,7 +36,6 @@ export class AppComponent implements OnInit {
               private keyboard: Keyboard,
               private statusBar: StatusBar,
               private splashScreen: SplashScreen,
-              private globalization: Globalization,
               private titleService: Title,
               private translateService: TranslateService,
               private i18nService: I18nService) { }
@@ -84,10 +82,6 @@ export class AppComponent implements OnInit {
     if (window['cordova']) {
       this.keyboard.hideKeyboardAccessoryBar(true);
       this.statusBar.styleDefault();
-      this.globalization.getPreferredLanguage().then(language => {
-        log.debug(`Setting language using device locale ${language.value}`);
-        this.i18nService.language = language.value;
-      });
       this.splashScreen.hide();
     }
   }
