@@ -81,7 +81,7 @@ export class AppComponent implements OnInit {
   private onCordovaReady() {
     if (window['cordova']) {
       this.keyboard.hideKeyboardAccessoryBar(true);
-      this.statusBar.styleDefault();
+      this.statusBar.styleLightContent();
       this.splashScreen.hide();
     }
   }
