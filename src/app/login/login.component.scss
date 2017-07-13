@@ -17,8 +17,9 @@
   color: color-contrast($colors, primary);
 }
 
-// Not working???
-.select-md .select-icon .select-icon-inner {
+// Force style down to child components
+// See https://angular.io/guide/component-styles#deep
+:host /deep/ .select-icon .select-icon-inner {
   color: color-contrast($colors, primary);
 }
 
