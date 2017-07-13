@@ -28,7 +28,6 @@ const log = new Logger('App');
 export class AppComponent implements OnInit {
 
   @ViewChild(Nav) nav: Nav;
-  navRoot: Component;
 
   constructor(private platform: Platform,
               private router: Router,
@@ -89,8 +88,8 @@ export class AppComponent implements OnInit {
   private updateNav(route: ActivatedRoute) {
     if (route.component === IonicApp) {
       route = route.firstChild;
-      if (this.nav.root !== route.component) {
-        this.navRoot = route.component;
+      if (!this.nav.getActive() || this.nav.getActive().component !== route.component) {
+        this.nav.setRoot(route.component, route.params, { animate: true, direction: 'forward' });
       }
     }
   }
