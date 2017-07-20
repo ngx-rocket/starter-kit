@@ -20,6 +20,10 @@ class MockTranslateService {
     });
   }
 
+  getBrowserCultureLang() {
+    return 'en-US';
+  }
+
   setTranslation(lang: string, translations: Object, shouldMerge?: boolean) { }
 
 }
