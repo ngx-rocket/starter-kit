@@ -1,5 +1,5 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": ["stylelint-config-standard", "stylelint-config-recommended-scss"],
   "rules": {
     "font-family-name-quotes": "always-where-recommended",
     "function-url-quotes": ["always", { "except": ["empty"] }],
