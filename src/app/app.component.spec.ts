@@ -5,7 +5,6 @@ import { IonicModule } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Keyboard } from '@ionic-native/keyboard';
-import { Globalization } from '@ionic-native/globalization';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -23,8 +22,7 @@ describe('AppComponent', () => {
       providers: [
         StatusBar,
         SplashScreen,
-        Keyboard,
-        Globalization
+        Keyboard
       ]
     });
     TestBed.compileComponents();
