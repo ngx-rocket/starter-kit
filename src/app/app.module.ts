@@ -23,12 +23,12 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     FormsModule,
     HttpModule,
     TranslateModule.forRoot(),
+    IonicModule.forRoot(AppComponent),
     CoreModule,
     SharedModule,
     HomeModule,
     AboutModule,
     LoginModule,
-    IonicModule.forRoot(AppComponent),
     AppRoutingModule
   ],
   entryComponents: [AppComponent],
