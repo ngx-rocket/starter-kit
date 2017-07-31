@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from 'ionic-angular';
 
@@ -14,9 +14,9 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        TranslateModule.forRoot(),
         IonicModule.forRoot(LoginComponent),
         RouterTestingModule,
+        TranslateModule.forRoot(),
         ReactiveFormsModule,
         CoreModule
       ],

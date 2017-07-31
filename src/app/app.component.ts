@@ -5,10 +5,10 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { IonicApp, Nav, Platform } from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -29,14 +29,14 @@ export class AppComponent implements OnInit {
 
   @ViewChild(Nav) nav: Nav;
 
-  constructor(private platform: Platform,
-              private router: Router,
+  constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
+              private titleService: Title,
+              private translateService: TranslateService,
+              private platform: Platform,
               private keyboard: Keyboard,
               private statusBar: StatusBar,
               private splashScreen: SplashScreen,
-              private titleService: Title,
-              private translateService: TranslateService,
               private i18nService: I18nService) { }
 
   ngOnInit() {
@@ -84,7 +84,6 @@ export class AppComponent implements OnInit {
       this.splashScreen.hide();
     }
   }
-
   private updateNav(route: ActivatedRoute) {
     if (route.component === IonicApp) {
       route = route.firstChild;

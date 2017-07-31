@@ -15,9 +15,9 @@ describe('ShellComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        RouterTestingModule,
         TranslateModule.forRoot(),
         IonicModule.forRoot(ShellComponent),
-        RouterTestingModule,
         CoreModule
       ],
       providers: [

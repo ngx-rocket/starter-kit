@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "ngx-rocket"
+    "name": "ng-x-rocket"
   },
   "apps": [
     {
@@ -10,7 +10,6 @@
       "assets": [
         "assets",
         "favicon.ico",
-        "manifest.json",
         "robots.txt"
       ],
       "index": "index.html",

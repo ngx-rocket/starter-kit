@@ -2,30 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>ngx rocket</title>
+  <title>ngX Rocket</title>
   <base href="./"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <meta name="msapplication-tap-highlight" content="no"/>
-  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-  <link rel="manifest" href="manifest.json"/>
   <meta name="theme-color" content="#4e8ef7"/>
 </head>
 <body>
-  <!--[if lt IE 10]>
-  <p>
-    You are using an <strong>outdated</strong> browser.
-    Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
-  </p>
-  <![endif]-->
-
   <!-- Include Cordova script only when needed -->
   <script>
-    if (!/^http/.test(location.protocol)) {
+    if (!/^http/.test(location.protocol)|/^localhost:8080/.test(location.host)) {
       document.write('<script src="cordova.js"><\/script>');
     }
   </script>
-
-  <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
 </body>
 </html>

@@ -6,8 +6,8 @@ import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    IonicModule
+    IonicModule,
+    CommonModule
   ],
   declarations: [
     LoaderComponent

@@ -24,8 +24,8 @@ export class ShellComponent implements OnInit {
               private platform: Platform,
               private alertController: AlertController,
               private actionSheetController: ActionSheetController,
-              private i18nService: I18nService,
-              private authenticationService: AuthenticationService) { }
+              private authenticationService: AuthenticationService,
+              private i18nService: I18nService) { }
 
   ngOnInit() {
     this.updateNav(this.activatedRoute);
@@ -76,6 +76,15 @@ export class ShellComponent implements OnInit {
     return credentials ? credentials.username : null;
   }
 
+  private logout() {
+    this.authenticationService.logout()
+    .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+  }
+
+  get isWeb(): boolean {
+    return !this.platform.is('cordova');
+  }
+
   private changeLanguage() {
     this.alertController
       .create({
@@ -100,11 +109,6 @@ export class ShellComponent implements OnInit {
         ]
       })
       .present();
-  }
-
-  private logout() {
-    this.authenticationService.logout()
-      .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
   private updateNav(route: ActivatedRoute) {
