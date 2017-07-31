@@ -1,7 +1,18 @@
-# ngX Rocket
+# ngX Starter Kit
 
-This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
-version 1.3.3
+Web project starter kit including modern tools and workflow based on
+[angular-cli](https://github.com/angular/angular-cli), best practices from the community, a scalable base template and
+a good learning base.
+
+Generated using [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket).
+
+### Benefits
+
+- Quickstart a project in seconds and focus on features, not on frameworks or tools
+
+- Industrial-grade tools, ready for usage in a continuous integration environment and DevOps
+
+- Scalable architecture with base app template including example components, services and tests
 
 # Getting started
 
@@ -132,3 +143,27 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Updating dependencies and tools](docs/updating.md)
 - [Using a backend proxy for development](docs/backend-proxy.md)
 - [Browser routing](docs/routing.md)
+
+# Licence
+
+The MIT License (MIT)
+
+Copyright (c) 2016-2017 Thales Services SAS
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
