@@ -116,7 +116,7 @@ export class ShellComponent implements OnInit {
     route = route.firstChild;
     if (route && route.component === ShellComponent) {
       route = route.firstChild;
-      this.navRoot = route.component;
+      this.navRoot = <Component>route.component;
     }
   }
 
