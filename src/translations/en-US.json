@@ -1,16 +1,16 @@
 {
-  "APP_NAME": "ngX Rocket",
-  "Version": "Version",
-  "Home": "Home",
+  "APP_NAME": "ngX-Rocket",
   "About": "About",
+  "Hello world !": "Hello world !",
+  "Home": "Home",
   "Logged in as": "Logged in as",
-  "Logout": "Logout",
-  "Username": "Username",
-  "Password": "Password",
-  "Username or password incorrect.": "Username or password incorrect.",
-  "Username is required": "Username is required",
-  "Password is required": "Password is required",
-  "Remember me": "Remember me",
   "Login": "Login",
-  "Hello world !": "Hello world !"
+  "Logout": "Logout",
+  "Password": "Password",
+  "Password is required": "Password is required",
+  "Username": "Username",
+  "Username is required": "Username is required",
+  "Username or password incorrect.": "Username or password incorrect.",
+  "Remember me": "Remember me",
+  "Version": "Version"
 }

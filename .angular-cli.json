@@ -9,7 +9,6 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "translations",
         "favicon.ico",
         "robots.txt"
       ],

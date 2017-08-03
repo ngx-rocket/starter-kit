@@ -2,8 +2,8 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpModule, Http, XHRBackend, ConnectionBackend, RequestOptions } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ShellComponent } from './shell/shell.component';
 import { HeaderComponent } from './shell/header/header.component';
@@ -24,15 +24,12 @@ export function createHttpService(backend: ConnectionBackend,
     CommonModule,
     HttpModule,
     TranslateModule,
-    RouterModule,
-    NgbModule.forRoot()
-  ],
-  exports: [
-    HeaderComponent
+    NgbModule,
+    RouterModule
   ],
   declarations: [
-    ShellComponent,
-    HeaderComponent
+    HeaderComponent,
+    ShellComponent
   ],
   providers: [
     AuthenticationService,

@@ -40,8 +40,9 @@ export class AppComponent implements OnInit {
     // Setup translations
     this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
 
-    // Change page title on navigation or language change, based on route data
     const onNavigationEnd = this.router.events.filter(event => event instanceof NavigationEnd);
+
+    // Change page title on navigation or language change, based on route data
     Observable.merge(this.translateService.onLangChange, onNavigationEnd)
       .map(() => {
         let route = this.activatedRoute;

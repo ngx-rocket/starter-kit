@@ -14,6 +14,7 @@ describe('AppComponent', () => {
         CoreModule
       ],
       declarations: [AppComponent],
+      providers: []
     });
     TestBed.compileComponents();
   });
