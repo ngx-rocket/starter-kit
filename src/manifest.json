@@ -1,0 +1,13 @@
+{
+  "name": "ngX-Rocket",
+  "short_name": "ngX-Rocket",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/ngx-rocket-logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#488aff",
+  "theme_color": "#488aff"
+}

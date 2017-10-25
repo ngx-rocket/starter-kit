@@ -10,10 +10,12 @@
       "assets": [
         "assets",
         "favicon.ico",
+        "manifest.json",
         "robots.txt"
       ],
       "index": "index.html",
       "main": "main.ts",
+      "serviceWorker": true,
       "polyfills": "polyfills.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
@@ -54,5 +56,8 @@
   "defaults": {
     "styleExt": "scss",
     "component": {}
+  },
+  "warnings": {
+    "typescriptMismatch": false
   }
 }
