@@ -1,9 +1,8 @@
-import 'rxjs/add/operator/filter';
-
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ActionSheetController, AlertController, Platform } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
+import { filter } from 'rxjs/operators';
 
 import { AuthenticationService } from '../authentication/authentication.service';
 import { I18nService } from '../i18n.service';
@@ -32,7 +31,7 @@ export class ShellComponent implements OnInit {
 
     // Bind Ionic navigation to Angular router events
     this.subscription = this.router.events
-      .filter(event => event instanceof NavigationEnd)
+      .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => this.updateNav(this.activatedRoute));
   }
 

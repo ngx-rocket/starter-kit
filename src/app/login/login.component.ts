@@ -1,9 +1,8 @@
-import 'rxjs/add/operator/finally';
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoadingController, Platform } from 'ionic-angular';
+import { finalize } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { Logger } from '../core/logger.service';
@@ -38,10 +37,10 @@ export class LoginComponent implements OnInit {
     const loading = this.loadingController.create();
     loading.present();
     this.authenticationService.login(this.loginForm.value)
-      .finally(() => {
+      .pipe(finalize(() => {
         this.loginForm.markAsPristine();
         loading.dismiss();
-      })
+      }))
       .subscribe(credentials => {
         log.debug(`${credentials.username} successfully logged in`);
         this.router.navigate(['/'], { replaceUrl: true });
