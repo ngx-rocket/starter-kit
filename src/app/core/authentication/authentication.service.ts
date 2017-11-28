@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 export interface Credentials {
   // Customize received credentials here
@@ -22,10 +23,13 @@ const credentialsKey = 'credentials';
 @Injectable()
 export class AuthenticationService {
 
-  private _credentials: Credentials;
+  private _credentials: Credentials | null;
 
   constructor() {
-    this._credentials = JSON.parse(sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey));
+    const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);
+    if (savedCredentials) {
+      this._credentials = JSON.parse(savedCredentials);
+    }
   }
 
   /**
@@ -40,7 +44,7 @@ export class AuthenticationService {
       token: '123456'
     };
     this.setCredentials(data, context.remember);
-    return Observable.of(data);
+    return of(data);
   }
 
   /**
@@ -50,7 +54,7 @@ export class AuthenticationService {
   logout(): Observable<boolean> {
     // Customize credentials invalidation here
     this.setCredentials();
-    return Observable.of(true);
+    return of(true);
   }
 
   /**
@@ -65,7 +69,7 @@ export class AuthenticationService {
    * Gets the user credentials.
    * @return {Credentials} The user credentials or null if the user is not authenticated.
    */
-  get credentials(): Credentials {
+  get credentials(): Credentials | null {
     return this._credentials;
   }
 

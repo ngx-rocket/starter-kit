@@ -1,16 +1,17 @@
 import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 import { Credentials, LoginContext } from './authentication.service';
 
 export class MockAuthenticationService {
 
-  credentials: Credentials = {
+  credentials: Credentials | null = {
     username: 'test',
     token: '123'
   };
 
   login(context: LoginContext): Observable<Credentials> {
-    return Observable.of({
+    return of({
       username: context.username,
       token: '123456'
     });
@@ -18,7 +19,7 @@ export class MockAuthenticationService {
 
   logout(): Observable<boolean> {
     this.credentials = null;
-    return Observable.of(true);
+    return of(true);
   }
 
   isAuthenticated(): boolean {

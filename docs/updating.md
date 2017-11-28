@@ -1,12 +1,12 @@
 # Updating npm dependencies
 
 - Check outdated packages
-```bash
-npm outdated 
+```sh
+npm outdated
 ```
 
 - Update local packages according to `package.json`
-```bash
+```sh
 npm update
 ```
 
@@ -33,8 +33,8 @@ npm shrinkwrap --dev
 ```
 
 This will create a file `npm-shrinkwrap.json` alongside your `package.json` files.
- 
-> Do not forget  to run shrinkwrap each time you manually update your dependencies! 
+
+> Do not forget  to run shrinkwrap each time you manually update your dependencies!
 
 # Updating angular-cli
 

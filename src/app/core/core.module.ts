@@ -1,11 +1,12 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { HttpModule, Http, XHRBackend, ConnectionBackend, RequestOptions } from '@angular/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from 'ionic-angular';
 
 import { ShellComponent } from './shell/shell.component';
+import { RouteReusableStrategy } from './route-reusable-strategy';
 import { AuthenticationService } from './authentication/authentication.service';
 import { AuthenticationGuard } from './authentication/authentication.guard';
 import { I18nService } from './i18n.service';
@@ -41,6 +42,10 @@ export function createHttpService(backend: ConnectionBackend,
       provide: Http,
       deps: [XHRBackend, RequestOptions, HttpCacheService],
       useFactory: createHttpService
+    },
+    {
+      provide: RouteReuseStrategy,
+      useClass: RouteReusableStrategy
     }
   ]
 })

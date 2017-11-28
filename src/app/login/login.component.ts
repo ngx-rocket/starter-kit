@@ -19,7 +19,7 @@ const log = new Logger('Login');
 export class LoginComponent implements OnInit {
 
   version: string = environment.version;
-  error: string = null;
+  error: string;
   loginForm: FormGroup;
 
   constructor(private router: Router,
