@@ -116,8 +116,9 @@ Development, build and quality processes are based on [angular-cli](https://gith
 #### Libraries
 
 - [Angular](https://angular.io)
-- [Bootstrap 4](https://v4-alpha.getbootstrap.com)
-- [Font Awesome](http://fontawesome.io)
+- [Angular Material](https://material.angular.io)
+- [Angular Flex Layout](https://github.com/angular/flex-layout)
+- [Material Icons](https://material.io/icons/)
 - [RxJS](http://reactivex.io/rxjs)
 - [ng-bootsrap](https://ng-bootstrap.github.io/)
 - [ngx-translate](https://github.com/ngx-translate/core)
