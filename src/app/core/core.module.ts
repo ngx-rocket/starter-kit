@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { HttpModule, Http, XHRBackend, ConnectionBackend, RequestOptions } from '@angular/http';
 import { TranslateModule } from '@ngx-translate/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { MaterialModule } from '../material.module';
 import { ShellComponent } from './shell/shell.component';
 import { HeaderComponent } from './shell/header/header.component';
 import { RouteReusableStrategy } from './route-reusable-strategy';
@@ -25,7 +26,8 @@ export function createHttpService(backend: ConnectionBackend,
     CommonModule,
     HttpModule,
     TranslateModule,
-    NgbModule,
+    FlexLayoutModule,
+    MaterialModule,
     RouterModule
   ],
   declarations: [

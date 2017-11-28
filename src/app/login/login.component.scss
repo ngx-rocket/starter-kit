@@ -1,29 +1,24 @@
 @import "src/theme/theme-variables";
-@import "~bootstrap/scss/mixins/_breakpoints";
 
-.login-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.login-box {
+:host {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex: 1;
+  background-color: #f5f5f5;
+}
+
+.inline-loader {
+  display: inline-block;
+}
+
+.version {
+  margin: 0;
+}
+
+.login-container,
+.mat-form-field {
   width: 100%;
-  min-height: 100%;
 }
 
-.ng-invalid.ng-touched:not(form) {
-  border-left: 4px solid theme-color("danger");
-}
-
-@include media-breakpoint-down(xs) {
-  .container {
-    width: 100%;
-  }
+.login-error {
+  color: mat-color($app-warn);
 }

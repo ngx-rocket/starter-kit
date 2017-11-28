@@ -1,9 +1,14 @@
+.container {
+  text-align: center;
+  padding: 1em;
+}
+
 .logo {
-  width: 100px;
+  width: 150px;
+  margin: 0 auto;
 }
 
 q {
   font-style: italic;
-  font-size: 1.2rem;
   quotes: "« " " »";
 }
