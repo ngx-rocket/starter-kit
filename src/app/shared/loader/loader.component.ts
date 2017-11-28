@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LoaderComponent implements OnInit {
 
   @Input() isLoading = false;
-  @Input() message: string = null;
+  @Input() message: string;
 
   constructor() { }
 
