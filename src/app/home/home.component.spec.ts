@@ -3,7 +3,7 @@ import { Http, BaseRequestOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 import { IonicModule } from 'ionic-angular';
 
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@app/shared';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 

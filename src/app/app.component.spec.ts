@@ -6,8 +6,8 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { CoreModule } from '@app/core';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
 
 describe('AppComponent', () => {
   beforeEach(() => {

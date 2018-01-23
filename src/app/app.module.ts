@@ -8,14 +8,13 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-
-import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
+import { CoreModule } from '@app/core';
+import { SharedModule } from '@app/shared';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { LoginModule } from './login/login.module';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
