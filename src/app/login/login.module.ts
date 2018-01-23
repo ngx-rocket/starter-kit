@@ -4,8 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { MaterialModule } from '../material.module';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@app/shared';
+import { MaterialModule } from '@app/material.module';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 

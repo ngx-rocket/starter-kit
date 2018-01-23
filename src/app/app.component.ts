@@ -5,9 +5,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { merge } from 'rxjs/observable/merge';
 import { filter, map, mergeMap } from 'rxjs/operators';
 
-import { environment } from '../environments/environment';
-import { Logger } from './core/logger.service';
-import { I18nService } from './core/i18n.service';
+import { environment } from '@env/environment';
+import { Logger, I18nService } from '@app/core';
 
 const log = new Logger('App');
 

@@ -4,8 +4,8 @@ import { MockBackend } from '@angular/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { MaterialModule } from '../material.module';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@app/shared';
+import { MaterialModule } from '@app/material.module';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 

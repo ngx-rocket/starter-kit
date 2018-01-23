@@ -5,7 +5,7 @@ import { HttpModule, Http, XHRBackend, ConnectionBackend, RequestOptions } from 
 import { TranslateModule } from '@ngx-translate/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { MaterialModule } from '../material.module';
+import { MaterialModule } from '@app/material.module';
 import { ShellComponent } from './shell/shell.component';
 import { HeaderComponent } from './shell/header/header.component';
 import { RouteReusableStrategy } from './route-reusable-strategy';
