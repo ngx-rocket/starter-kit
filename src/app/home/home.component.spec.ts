@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '@app/shared';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 
