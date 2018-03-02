@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Http, BaseRequestOptions } from '@angular/http';
-import { MockBackend } from '@angular/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { IonicModule } from 'ionic-angular';
 
+import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
@@ -15,21 +15,12 @@ describe('HomeComponent', () => {
     TestBed.configureTestingModule({
         imports: [
           IonicModule.forRoot(HomeComponent),
-          SharedModule
+          CoreModule,
+          SharedModule,
+          HttpClientTestingModule
         ],
         declarations: [HomeComponent],
-        providers: [
-          QuoteService,
-          MockBackend,
-          BaseRequestOptions,
-          {
-            provide: Http,
-            useFactory: (backend: MockBackend, defaultOptions: BaseRequestOptions) => {
-              return new Http(backend, defaultOptions);
-            },
-            deps: [MockBackend, BaseRequestOptions]
-          }
-        ]
+        providers: [QuoteService]
       })
       .compileComponents();
   }));

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
@@ -20,9 +20,9 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     TranslateModule.forRoot(),
-    IonicModule.forRoot(AppComponent, {locationStrategy: 'path'}),
+    IonicModule.forRoot(AppComponent, { locationStrategy: 'path' }),
     CoreModule,
     SharedModule,
     HomeModule,
@@ -32,10 +32,10 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   declarations: [AppComponent],
   providers: [
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     Keyboard,
     StatusBar,
-    SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    SplashScreen
   ],
   bootstrap: [IonicApp]
 })
