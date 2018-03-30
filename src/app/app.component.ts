@@ -41,6 +41,7 @@ export class AppComponent implements OnInit {
 
     log.debug('init');
 
+
     // Setup translations
     this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
 
