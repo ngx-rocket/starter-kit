@@ -1,8 +1,0 @@
-# List of supported browsers, for autoprefixer
-# See https://github.com/ai/browserslist
-
-Last 2 versions
-iOS >= 8
-Android >= 4.4
-Explorer >= 11
-ExplorerMobile >= 11

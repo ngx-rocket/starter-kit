@@ -39,11 +39,6 @@ import { CacheInterceptor } from './http/cache.interceptor';
     ErrorHandlerInterceptor,
     CacheInterceptor,
     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiPrefixInterceptor,
-      multi: true
-    },
-    {
       provide: HttpClient,
       useClass: HttpService
     },
