@@ -145,7 +145,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2017 Thales Services SAS
+Copyright (c) 2016-2018 Thales Services SAS
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
