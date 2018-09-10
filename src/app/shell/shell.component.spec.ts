@@ -3,10 +3,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { AuthenticationService } from '../authentication/authentication.service';
-import { MockAuthenticationService } from '../authentication/authentication.service.mock';
-import { CoreModule } from '../core.module';
+import { AuthenticationService, CoreModule, MockAuthenticationService } from '@app/core';
+
 import { ShellComponent } from './shell.component';
+import { HeaderComponent } from './header/header.component';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -22,8 +22,12 @@ describe('ShellComponent', () => {
       ],
       providers: [
         { provide: AuthenticationService, useClass: MockAuthenticationService }
+      ],
+      declarations: [
+        HeaderComponent,
+        ShellComponent
       ]
-    })
+  })
     .compileComponents();
   }));
 
