@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { IonicModule } from 'ionic-angular';
-
-import { ShellComponent } from './shell/shell.component';
 import { RouteReusableStrategy } from './route-reusable-strategy';
 import { AuthenticationService } from './authentication/authentication.service';
 import { AuthenticationGuard } from './authentication/authentication.guard';
@@ -21,14 +18,7 @@ import { CacheInterceptor } from './http/cache.interceptor';
     CommonModule,
     HttpClientModule,
     TranslateModule,
-    IonicModule,
     RouterModule
-  ],
-  entryComponents: [
-    ShellComponent
-  ],
-  declarations: [
-    ShellComponent
   ],
   providers: [
     AuthenticationService,

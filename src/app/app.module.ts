@@ -11,8 +11,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeModule } from './home/home.module';
+import { ShellModule } from './shell/shell.module';
 import { AboutModule } from './about/about.module';
 import { LoginModule } from './login/login.module';
+import { SettingsModule } from './settings/settings.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -25,7 +27,9 @@ import { AppRoutingModule } from './app-routing.module';
     IonicModule.forRoot(AppComponent, { locationStrategy: 'path' }),
     CoreModule,
     SharedModule,
+    ShellModule,
     HomeModule,
+    SettingsModule,
     AboutModule,
     LoginModule,
     AppRoutingModule
