@@ -3,8 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material';
 
-import { AuthenticationService } from '../../authentication/authentication.service';
-import { I18nService } from '../../i18n.service';
+import { AuthenticationService, I18nService } from '@app/core';
 
 @Component({
   selector: 'app-header',
