@@ -1,3 +1,3 @@
-##angular-material-electron-starter-kit
+angular-material-electron-starter-kit
 
 In production
