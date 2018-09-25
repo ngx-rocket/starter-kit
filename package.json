@@ -14,21 +14,25 @@
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean -sort --marker extract",
     "docs": "hads ./docs -o",
     "env": "ngx-scripts env npm_package_version",
+    "prettier": "prettier --write \"./{src,e2e}/**/*.{ts,js,scss}\"",
+    "prettier:check": "prettier --list-different \"./{src,e2e}/**/*.{ts,js,scss}\"",
+    "postinstall": "npm run prettier -s",
+    "precommit": "pretty-quick --staged",
     "generate": "ng generate"
   },
   "dependencies": {
-    "@angular/animations": "^6.1.6",
-    "@angular/common": "^6.1.6",
-    "@angular/compiler": "^6.1.6",
-    "@angular/core": "^6.1.6",
-    "@angular/forms": "^6.1.6",
-    "@angular/http": "^6.1.6",
-    "@angular/platform-browser": "^6.1.6",
-    "@angular/platform-browser-dynamic": "^6.1.6",
-    "@angular/router": "^6.1.6",
+    "@angular/animations": "^6.1.7",
+    "@angular/common": "^6.1.7",
+    "@angular/compiler": "^6.1.7",
+    "@angular/core": "^6.1.7",
+    "@angular/forms": "^6.1.7",
+    "@angular/http": "^6.1.7",
+    "@angular/platform-browser": "^6.1.7",
+    "@angular/platform-browser-dynamic": "^6.1.7",
+    "@angular/router": "^6.1.7",
     "@ngx-translate/core": "^10.0.1",
-    "@angular/service-worker": "^6.1.6",
-    "@ng-bootstrap/ng-bootstrap": "^2.0.0",
+    "@angular/service-worker": "^6.1.7",
+    "@ng-bootstrap/ng-bootstrap": "^3.2.0",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "core-js": "^2.5.6",
@@ -37,10 +41,10 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular/cli": "~6.1.5",
-    "@angular/compiler-cli": "^6.1.6",
-    "@angular/language-service": "^6.1.6",
-    "@angular-devkit/build-angular": "~0.7.5",
+    "@angular/cli": "~6.2.1",
+    "@angular/compiler-cli": "^6.1.7",
+    "@angular/language-service": "^6.1.7",
+    "@angular-devkit/build-angular": "~0.8.1",
     "@biesbjerg/ngx-translate-extract": "^2.3.4",
     "@ngx-rocket/scripts": "^3.0.0",
     "@types/jasmine": "^2.8.7",
@@ -59,6 +63,11 @@
     "karma-coverage-istanbul-reporter": "^2.0.2",
     "karma-jasmine": "^1.1.2",
     "karma-junit-reporter": "^1.2.0",
+    "prettier": "^1.14.0",
+    "tslint-config-prettier": "^1.14.0",
+    "stylelint-config-prettier": "^4.0.0",
+    "pretty-quick": "^1.6.0",
+    "husky": "^0.14.3",
     "protractor": "~5.4.0",
     "puppeteer": "^1.4.0",
     "stylelint": "~9.5.0",
@@ -68,5 +77,16 @@
     "ts-node": "~7.0.1",
     "tslint": "~5.11.0",
     "typescript": "~2.9.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.scss",
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
   }
 }

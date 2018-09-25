@@ -30,7 +30,7 @@ import { AppRoutingModule } from './app-routing.module';
     HomeModule,
     AboutModule,
     LoginModule,
-    AppRoutingModule
+    AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
   providers: [
