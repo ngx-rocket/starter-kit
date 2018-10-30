@@ -17,7 +17,7 @@ describe('ShellComponent', () => {
       imports: [
         RouterTestingModule,
         TranslateModule.forRoot(),
-        NgbModule.forRoot(),
+        NgbModule,
         CoreModule
       ],
       providers: [

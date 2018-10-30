@@ -23,7 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     HttpClientModule,
     TranslateModule.forRoot(),
-    NgbModule.forRoot(),
+    NgbModule,
     CoreModule,
     SharedModule,
     ShellModule,
