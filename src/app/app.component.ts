@@ -5,7 +5,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { merge } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { IonicApp, Nav, Platform } from 'ionic-angular';
-import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -28,7 +27,6 @@ export class AppComponent implements OnInit {
               private titleService: Title,
               private translateService: TranslateService,
               private platform: Platform,
-              private keyboard: Keyboard,
               private statusBar: StatusBar,
               private splashScreen: SplashScreen,
               private i18nService: I18nService) { }
@@ -76,7 +74,7 @@ export class AppComponent implements OnInit {
 
   private onCordovaReady() {
     if (window['cordova']) {
-      this.keyboard.hideKeyboardAccessoryBar(true);
+      window['Keyboard'].hideFormAccessoryBar(true);
       this.statusBar.styleLightContent();
       this.splashScreen.hide();
     }

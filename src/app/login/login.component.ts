@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoadingController, Platform } from 'ionic-angular';
 import { finalize } from 'rxjs/operators';
@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private router: Router,
+              private route: ActivatedRoute,
               private formBuilder: FormBuilder,
               private platform: Platform,
               private loadingController: LoadingController,
@@ -41,7 +42,9 @@ export class LoginComponent implements OnInit {
       }))
       .subscribe(credentials => {
         log.debug(`${credentials.username} successfully logged in`);
-        this.router.navigate(['/'], { replaceUrl: true });
+        this.route.queryParams.subscribe(
+          params => this.router.navigate([ params.redirect || '/'], { replaceUrl: true })
+        );
       }, error => {
         log.debug(`Login error: ${error}`);
         this.error = error;

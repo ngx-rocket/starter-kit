@@ -2,7 +2,6 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from 'ionic-angular';
-import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -20,7 +19,6 @@ describe('AppComponent', () => {
       ],
       declarations: [AppComponent],
       providers: [
-        Keyboard,
         StatusBar,
         SplashScreen
       ]

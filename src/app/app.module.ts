@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -37,7 +36,6 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [AppComponent],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    Keyboard,
     StatusBar,
     SplashScreen
   ],
