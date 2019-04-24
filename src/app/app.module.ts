@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
@@ -23,7 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     HttpClientModule,
     TranslateModule.forRoot(),
-    IonicModule.forRoot(AppComponent, { locationStrategy: 'path' }),
+    IonicModule.forRoot(),
     CoreModule,
     SharedModule,
     ShellModule,
@@ -35,10 +36,9 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   declarations: [AppComponent],
   providers: [
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
     StatusBar,
     SplashScreen
   ],
-  bootstrap: [IonicApp]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

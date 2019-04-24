@@ -1,15 +1,16 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { merge } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
-import { IonicApp, Nav, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Platform } from '@ionic/angular';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService } from '@app/core';
+import { Logger, I18nService, untilDestroyed } from '@app/core';
+
 
 const log = new Logger('App');
 
@@ -18,9 +19,7 @@ const log = new Logger('App');
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-
-  @ViewChild(Nav) nav: Nav;
+export class AppComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -31,7 +30,7 @@ export class AppComponent implements OnInit {
               private splashScreen: SplashScreen,
               private i18nService: I18nService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     // Setup logger
     if (environment.production) {
       Logger.enableProductionMode();
@@ -56,7 +55,8 @@ export class AppComponent implements OnInit {
           return route;
         }),
         filter(route => route.outlet === 'primary'),
-        mergeMap(route => route.data)
+        mergeMap(route => route.data),
+        untilDestroyed(this)
       )
       .subscribe(event => {
         const title = event['title'];
@@ -65,29 +65,25 @@ export class AppComponent implements OnInit {
         }
       });
 
-    // Bind Ionic navigation to Angular router events
-    onNavigationEnd.subscribe(() => this.updateNav(this.activatedRoute));
 
     // Cordova platform and plugins initialization
-    this.platform.ready().then(() => this.onCordovaReady());
+    await this.platform.ready();
+    this.onCordovaReady();
+  }
+
+  ngOnDestroy() {
+    this.i18nService.destroy();
   }
 
   private onCordovaReady() {
+    log.debug('device ready');
+
     if (window['cordova']) {
+      log.debug('Cordova init');
+
       window['Keyboard'].hideFormAccessoryBar(true);
       this.statusBar.styleLightContent();
       this.splashScreen.hide();
-    }
-  }
-  private updateNav(route: ActivatedRoute) {
-    if (route.component === IonicApp) {
-      if (!route.firstChild) {
-        return;
-      }
-      route = route.firstChild;
-      if (!this.nav.getActive() || this.nav.getActive().component !== route.component) {
-        this.nav.setRoot(route.component, route.params, { animate: true, direction: 'forward' });
-      }
     }
   }
 

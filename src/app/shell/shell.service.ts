@@ -15,7 +15,7 @@ export class Shell {
    */
   static childRoutes(routes: Routes): Route {
     return {
-      path: '',
+      path: 'tabs',
       component: ShellComponent,
       children: routes,
       canActivate: [AuthenticationGuard],

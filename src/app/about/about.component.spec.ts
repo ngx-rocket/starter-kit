@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from 'ionic-angular';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 
 import { AboutComponent } from './about.component';
 
@@ -9,7 +10,8 @@ describe('AboutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [IonicModule.forRoot(AboutComponent)],
+        imports: [IonicModule.forRoot()],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
         declarations: [AboutComponent]
       })
       .compileComponents();
