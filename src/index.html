@@ -4,33 +4,9 @@
   <meta charset="utf-8"/>
   <title>ngX-Rocket</title>
   <base href="/"/>
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-  <meta name="msapplication-tap-highlight" content="no"/>
-  <meta name="theme-color" content="#4e8ef7"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
-  <!-- Include Cordova script only when needed -->
-  <script>
-    if (!/^http/.test(location.protocol)|/^localhost:8080/.test(location.host)) {
-      /**
-       * https://github.com/angular/angular/issues/22509
-       * Prevent cordova.js 5.2.4+ routing bug
-      **/
-      window.addEventListener = function () {
-          EventTarget.prototype.addEventListener.apply(this, arguments);
-      };
-      window.removeEventListener = function () {
-          EventTarget.prototype.removeEventListener.apply(this, arguments);
-      };
-      document.addEventListener = function () {
-          EventTarget.prototype.addEventListener.apply(this, arguments);
-      };
-      document.removeEventListener = function () {
-          EventTarget.prototype.removeEventListener.apply(this, arguments);
-      };
-      document.write('<script src="cordova.js"><\/script>');
-    }
-  </script>
-  <ion-app></ion-app>
+  <app-root></app-root>
 </body>
 </html>

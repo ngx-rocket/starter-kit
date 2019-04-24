@@ -1,9 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
-import { IonicModule } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 
 import { CoreModule } from '@app/core';
 import { AppComponent } from './app.component';
@@ -11,19 +10,16 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [
-        IonicModule.forRoot(AppComponent),
+        IonicModule.forRoot(),
         RouterTestingModule,
         TranslateModule.forRoot(),
         CoreModule
       ],
       declarations: [AppComponent],
-      providers: [
-        StatusBar,
-        SplashScreen
-      ]
-    });
-    TestBed.compileComponents();
+      providers: []
+    }).compileComponents();
   }));
 
   it('should create the app', async(() => {

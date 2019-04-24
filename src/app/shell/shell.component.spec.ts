@@ -1,9 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
-import { IonicModule } from 'ionic-angular';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 
-import { AuthenticationService, CoreModule, MockAuthenticationService } from '@app/core';
+import { AuthenticationService, CredentialsService, CoreModule } from '@app/core';
+import { MockAuthenticationService } from '@app/core/authentication/authentication.service.mock';
+import { MockCredentialsService } from '@app/core/authentication/credentials.service.mock';
 
 import { ShellComponent } from './shell.component';
 import { AboutComponent } from '@app/about/about.component';
@@ -22,15 +25,17 @@ describe('ShellComponent', () => {
       imports: [
         RouterTestingModule,
         TranslateModule.forRoot(),
-        IonicModule.forRoot(ShellComponent),
+        IonicModule.forRoot(),
         HomeModule,
         AboutModule,
         SettingsModule,
         CoreModule
       ],
       providers: [
-        { provide: AuthenticationService, useClass: MockAuthenticationService }
+        { provide: AuthenticationService, useClass: MockAuthenticationService },
+        { provide: CredentialsService, useClass: MockCredentialsService }
       ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       declarations: [
         ShellComponent
       ]

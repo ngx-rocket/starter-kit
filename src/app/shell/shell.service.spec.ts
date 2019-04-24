@@ -1,6 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { AuthenticationGuard, AuthenticationService, MockAuthenticationService } from '@app/core';
+import { AuthenticationGuard, AuthenticationService } from '@app/core';
+import { MockAuthenticationService } from '@app/core/authentication/authentication.service.mock';
 import { ShellComponent } from './shell.component';
 import { Shell } from './shell.service';
 
@@ -27,7 +28,7 @@ describe('Shell', () => {
       const result = Shell.childRoutes(testRoutes);
 
       // Assert
-      expect(result.path).toBe('');
+      expect(result.path).toBe('tabs');
       expect(result.children).toBe(testRoutes);
       expect(result.component).toBe(ShellComponent);
     });

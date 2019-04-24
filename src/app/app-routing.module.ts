@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   // Fallback when no prior route is matched
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: 'tabs/home', pathMatch: 'full' }
 ];
 
 @NgModule({

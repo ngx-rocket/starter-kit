@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from 'ionic-angular';
+import { IonicModule } from '@ionic/angular';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { LoaderComponent } from './loader.component';
 
@@ -9,7 +10,8 @@ describe('LoaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [IonicModule.forRoot(LoaderComponent)],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
+        imports: [IonicModule.forRoot()],
         declarations: [LoaderComponent]
       })
       .compileComponents();
