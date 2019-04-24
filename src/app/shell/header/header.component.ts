@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthenticationService, I18nService } from '@app/core';
+import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
+              private credentialsService: CredentialsService,
               private i18nService: I18nService) { }
 
   ngOnInit() { }
@@ -40,7 +41,7 @@ export class HeaderComponent implements OnInit {
   }
 
   get username(): string | null {
-    const credentials = this.authenticationService.credentials;
+    const credentials = this.credentialsService.credentials;
     return credentials ? credentials.username : null;
   }
 
