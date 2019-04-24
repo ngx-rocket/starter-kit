@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { each } from 'lodash';
 
 import { Logger } from '../logger.service';
 
@@ -81,7 +80,7 @@ export class HttpCacheService {
    */
   cleanCache(expirationDate?: Date) {
     if (expirationDate) {
-      each(this.cachedData, (value: HttpCacheEntry, key: string) => {
+      Object.entries(this.cachedData).forEach(([key, value]) => {
         if (expirationDate >= value.lastUpdated) {
           delete this.cachedData[key];
         }
@@ -106,12 +105,12 @@ export class HttpCacheService {
 
   private saveCacheData() {
     if (this.storage) {
-      this.storage[cachePersistenceKey] = JSON.stringify(this.cachedData);
+      this.storage.setItem(cachePersistenceKey, JSON.stringify(this.cachedData));
     }
   }
 
   private loadCacheData() {
-    const data = this.storage ? this.storage[cachePersistenceKey] : null;
+    const data = this.storage ? this.storage.getItem(cachePersistenceKey) : null;
     this.cachedData = data ? JSON.parse(data) : {};
   }
 

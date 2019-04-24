@@ -1,21 +1,28 @@
 import { browser } from 'protractor';
-import { AppPage } from './app.po';
+import { LoginPage } from './page-objects/login.po';
+import { AppSharedPage } from './page-objects/app-shared.po';
+import { ShellPage } from './page-objects/shell.po';
 
-describe('app', () => {
-  let page: AppPage;
+describe('when the app loads', () => {
+  const login = new LoginPage();
+  const app = new AppSharedPage();
+  const shell = new ShellPage();
 
-  beforeEach(() => {
-    page = new AppPage();
+  beforeAll(async () => {
+    await app.navigateAndSetLanguage();
   });
 
-  it('should display login page and login into app', () => {
-    page.navigateTo();
-    expect(browser.getCurrentUrl()).toContain('/login');
-    page.login();
+  it('should display the login page', async () => {
+    expect(await browser.getCurrentUrl()).toContain('/login');
   });
 
-  it('should display hello message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Hello world !');
+  describe('and the user logs in', () => {
+    beforeAll(async () => {
+      await login.login();
+    });
+
+    it('should display the hello message', async () => {
+      expect(await shell.getParagraphText()).toEqual('Hello world !');
+    });
   });
 });

@@ -9,7 +9,7 @@ export class LoaderComponent implements OnInit {
 
   @Input() isLoading = false;
   @Input() size = 1;
-  @Input() message: string;
+  @Input() message: string | undefined;
 
   constructor() { }
 

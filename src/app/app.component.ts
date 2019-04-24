@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
@@ -6,7 +6,7 @@ import { merge } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService } from '@app/core';
+import { Logger, I18nService, untilDestroyed } from '@app/core';
 
 const log = new Logger('App');
 
@@ -15,7 +15,7 @@ const log = new Logger('App');
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -48,7 +48,8 @@ export class AppComponent implements OnInit {
           return route;
         }),
         filter(route => route.outlet === 'primary'),
-        mergeMap(route => route.data)
+        mergeMap(route => route.data),
+        untilDestroyed(this)
       )
       .subscribe(event => {
         const title = event['title'];
@@ -56,6 +57,10 @@ export class AppComponent implements OnInit {
           this.titleService.setTitle(this.translateService.instant(title));
         }
       });
+  }
+
+  ngOnDestroy() {
+    this.i18nService.destroy();
   }
 
 }

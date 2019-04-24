@@ -13,6 +13,10 @@
 /plugins
 /platforms
 
+# Electron
+/dist.electron
+/electron.main.js
+
 # IDEs and editors
 .idea/*
 !.idea/runConfigurations/

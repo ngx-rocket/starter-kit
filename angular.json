@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@angular-devkit/core/src/workspace/workspace-schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -45,6 +45,13 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
               "serviceWorker": true,
               "fileReplacements": [
                 {
@@ -52,6 +59,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "ci": {
+              "progress": false
             }
           }
         },
@@ -63,6 +73,9 @@
           "configurations": {
             "production": {
               "browserTarget": "ng-x-rocket:build:production"
+            },
+            "ci": {
+              "progress": false
             }
           }
         },
@@ -90,6 +103,12 @@
               "src/manifest.json",
               "src/assets"
             ]
+          },
+          "configurations": {
+            "ci": {
+              "progress": false,
+              "watch": false
+            }
           }
         },
         "lint": {

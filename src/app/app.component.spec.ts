@@ -15,8 +15,7 @@ describe('AppComponent', () => {
       ],
       declarations: [AppComponent],
       providers: []
-    });
-    TestBed.compileComponents();
+    }).compileComponents();
   }));
 
   it('should create the app', async(() => {
