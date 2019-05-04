@@ -5,7 +5,7 @@
     "scripts": {
     "ng": "ng",
     "build": "npm run env -s && ng build --prod",
-    "start": "npm run env -s && ng serve --aot --aot --proxy-config proxy.conf.js",
+    "start": "npm run env -s && ng serve --aot --proxy-config proxy.conf.js",
     "serve:sw": "npm run build -s && npx http-server ./dist -p 4200",
     "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
     "test": "npm run env -s && ng test",
@@ -34,7 +34,7 @@
     "@ng-bootstrap/ng-bootstrap": "^4.0.4",
     "bootstrap": "^4.1.1",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
-    "core-js": "^3.0.1",
+    "core-js": "^2.6.3",
     "rxjs": "^6.4.0",
     "zone.js": "^0.9.0"
   },
