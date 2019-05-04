@@ -35,7 +35,7 @@
     "@angular/router": "^7.2.3",
     "@ngx-translate/core": "^11.0.1",
     "@ionic/angular": "^4.0.0",
-    "core-js": "^3.0.1",
+    "core-js": "^2.6.3",
     "rxjs": "^6.4.0",
     "zone.js": "^0.9.0"
   },
