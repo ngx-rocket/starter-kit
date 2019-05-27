@@ -3,7 +3,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { merge } from 'rxjs';
-import { filter, map, mergeMap } from 'rxjs/operators';
+import { filter, map, switchMap } from 'rxjs/operators';
 import { Platform } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -55,7 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
           return route;
         }),
         filter(route => route.outlet === 'primary'),
-        mergeMap(route => route.data),
+        switchMap(route => route.data),
         untilDestroyed(this)
       )
       .subscribe(event => {
