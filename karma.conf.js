@@ -6,7 +6,7 @@ const path = require('path');
 
 module.exports = function(config) {
   config.set({
-    basePath: '..',
+    basePath: '.',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
@@ -20,18 +20,15 @@ module.exports = function(config) {
       captureConsole: Boolean(process.env.KARMA_ENABLE_CONSOLE)
     },
     junitReporter: {
-      outputDir: path.join(__dirname, '../reports/junit/'),
+      outputDir: path.join(__dirname, './reports/junit/'),
       outputFile: 'TESTS-xunit.xml',
       useBrowserName: false,
       suite: '' // Will become the package name attribute in xml testsuite element
     },
     coverageIstanbulReporter: {
       reports: ['html', 'lcovonly', 'text-summary'],
-      dir: path.join(__dirname, '../reports/coverage'),
+      dir: path.join(__dirname, './reports/coverage'),
       fixWebpackSourcePaths: true
-    },
-    angularCli: {
-      environment: 'dev'
     },
     reporters: ['progress', 'junit'],
     port: 9876,
@@ -40,6 +37,7 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['ChromeHeadless'],
-    singleRun: false
+    singleRun: false,
+    restartOnFileChange: true
   });
 };
