@@ -8,10 +8,7 @@ import { browser, element, by } from 'protractor';
 export class ShellPage {
   welcomeText = element(by.css('app-root ion-card-title'));
 
-  constructor() {
-  }
-
-  async getParagraphText() {
-    return await this.welcomeText.getText();
+  getParagraphText() {
+    return this.welcomeText.getText();
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
@@ -52,7 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
         untilDestroyed(this)
       )
       .subscribe(event => {
-        const title = event['title'];
+        const title = event.title;
         if (title) {
           this.titleService.setTitle(this.translateService.instant(title));
         }

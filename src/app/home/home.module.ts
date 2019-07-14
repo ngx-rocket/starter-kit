@@ -23,9 +23,6 @@ import { QuoteService } from './quote.service';
   ],
   declarations: [
     HomeComponent
-  ],
-  providers: [
-    QuoteService
   ]
 })
 export class HomeModule { }
