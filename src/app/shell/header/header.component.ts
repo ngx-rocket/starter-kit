@@ -1,7 +1,7 @@
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
 
 import { AuthenticationService, CredentialsService, I18nService } from '@app/core';
 
@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
     return this.i18nService.supportedLanguages;
   }
 
-  get username(): string {
+  get username(): string | null {
     const credentials = this.credentialsService.credentials;
     return credentials ? credentials.username : null;
   }
