@@ -11,9 +11,6 @@ export class LoginPage {
   passwordField = element(by.css('ion-input[formControlName="password"] input'));
   loginButton = element(by.css('ion-button[type="submit"]'));
 
-  constructor() {
-  }
-
   async login() {
     await this.usernameField.sendKeys('test');
     await this.passwordField.sendKeys('123');

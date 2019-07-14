@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
@@ -7,6 +7,7 @@ import { filter, map, switchMap } from 'rxjs/operators';
 import { Platform } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 
 import { environment } from '@env/environment';
 import { Logger, I18nService, untilDestroyed } from '@app/core';
@@ -26,6 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
               private titleService: Title,
               private translateService: TranslateService,
               private platform: Platform,
+              private keyboard: Keyboard,
               private statusBar: StatusBar,
               private splashScreen: SplashScreen,
               private i18nService: I18nService) { }
@@ -59,7 +61,7 @@ export class AppComponent implements OnInit, OnDestroy {
         untilDestroyed(this)
       )
       .subscribe(event => {
-        const title = event['title'];
+        const title = event.title;
         if (title) {
           this.titleService.setTitle(this.translateService.instant(title));
         }
@@ -78,10 +80,10 @@ export class AppComponent implements OnInit, OnDestroy {
   private onCordovaReady() {
     log.debug('device ready');
 
-    if (window['cordova']) {
+    if (window.cordova) {
       log.debug('Cordova init');
 
-      window['Keyboard'].hideFormAccessoryBar(true);
+      this.keyboard.hideFormAccessoryBar(true);
       this.statusBar.styleLightContent();
       this.splashScreen.hide();
     }
