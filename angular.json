@@ -89,28 +89,16 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "src/test.ts",
-            "karmaConfig": "karma.conf.js",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "scripts": [],
-            "styles": [
-              "src/main.scss"
-            ],
-            "assets": [
-              "src/favicon.ico",
-              "src/apple-touch-icon.png",
-              "src/robots.txt",
-              "src/manifest.json",
-              "src/assets"
-            ]
+            "watch": true
           },
           "configurations": {
             "ci": {
-              "progress": false,
-              "watch": false
+              "watch": false,
+              "ci": true,
+              "coverage": true,
+              "silent": true
             }
           }
         },
