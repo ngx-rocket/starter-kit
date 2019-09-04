@@ -12,14 +12,18 @@ import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
 
-  let statusBarSpy: jasmine.Spy;
-  let splashScreenSpy: jasmine.Spy;
-  let keyboardSpy: jasmine.Spy;
+  let statusBarSpy: any;
+  let splashScreenSpy: any;
+  let keyboardSpy: any;
 
   beforeEach(async(() => {
-    statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
-    splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
-    keyboardSpy = jasmine.createSpyObj('Keyboard', ['hideFormAccessoryBar']);
+    statusBarSpy = jest.fn();
+    splashScreenSpy = {
+      hide: jest.fn()
+    };
+    keyboardSpy = {
+      hideFormAccessoryBar: jest.fn()
+    };
 
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -42,5 +46,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  }));
+  }), 30000);
 });
