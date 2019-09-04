@@ -11,14 +11,14 @@ describe('LoaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [
-          BrowserAnimationsModule,
-          FlexLayoutModule,
-          MaterialModule
-        ],
-        declarations: [LoaderComponent]
-      })
-      .compileComponents();
+      imports: [
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        MaterialModule
+      ],
+      declarations: [LoaderComponent]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
@@ -55,7 +55,7 @@ describe('LoaderComponent', () => {
     const span = element.querySelectorAll('span')[0];
 
     // Assert
-    expect(span.innerText).toBe('');
+    expect(span.textContent).toBe('');
   });
 
   it('should display specified message', () => {
@@ -68,6 +68,6 @@ describe('LoaderComponent', () => {
     fixture.detectChanges();
 
     // Assert
-    expect(span.innerText).toBe('testing');
+    expect(span.textContent).toBe('testing');
   });
 });
