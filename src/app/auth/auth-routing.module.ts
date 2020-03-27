@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { extract } from '@app/core';
+import { extract } from '@app/i18n';
 import { LoginComponent } from './login.component';
 
 const routes: Routes = [
@@ -13,4 +13,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class LoginRoutingModule { }
+export class AuthRoutingModule { }

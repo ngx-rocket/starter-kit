@@ -1,17 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TranslateModule } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { CoreModule } from '@core';
-import { SharedModule } from '@shared';
 import { MaterialModule } from '@app/material.module';
-import { HomeComponent } from './home.component';
-import { QuoteService } from './quote.service';
+import { I18nService } from './i18n.service';
+import { LanguageSelectorComponent } from './language-selector.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('LanguageSelectorComponent', () => {
+  let component: LanguageSelectorComponent;
+  let fixture: ComponentFixture<LanguageSelectorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,18 +17,16 @@ describe('HomeComponent', () => {
           BrowserAnimationsModule,
           FlexLayoutModule,
           MaterialModule,
-          CoreModule,
-          SharedModule,
-          HttpClientTestingModule
+          TranslateModule.forRoot()
         ],
-        declarations: [HomeComponent],
-        providers: [QuoteService]
+        declarations: [LanguageSelectorComponent],
+        providers: [I18nService]
       })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(LanguageSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

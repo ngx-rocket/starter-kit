@@ -26,6 +26,10 @@
   }
 }
 
+.mat-drawer-container {
+  position: unset;
+}
+
 .mat-sidenav,
 .mat-drawer-content,
 // Force style down to child components
