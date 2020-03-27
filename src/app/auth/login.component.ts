@@ -4,7 +4,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService, AuthenticationService, untilDestroyed } from '@app/core';
+import { Logger, untilDestroyed } from '@core';
+import { AuthenticationService } from './authentication.service';
 
 const log = new Logger('Login');
 
@@ -23,7 +24,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private formBuilder: FormBuilder,
-              private i18nService: I18nService,
               private authenticationService: AuthenticationService) {
     this.createForm();
   }
@@ -50,17 +50,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
-  setLanguage(language: string) {
-    this.i18nService.language = language;
-  }
-
-  get currentLanguage(): string {
-    return this.i18nService.language;
-  }
-
-  get languages(): string[] {
-    return this.i18nService.supportedLanguages;
-  }
 
   private createForm() {
     this.loginForm = this.formBuilder.group({
