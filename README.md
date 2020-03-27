@@ -113,7 +113,6 @@ Development, build and quality processes are based on [angular-cli](https://gith
   [Stylelint](http://stylelint.io) and [HTMLHint](http://htmlhint.com/)
 - Local knowledgebase server using [Hads](https://github.com/sinedied/hads)
 - Automatic code formatting with [Prettier](https://prettier.io)
-- Deployment with the CLI using [ng deploy](https://angular.io/guide/deployment)
 
 #### Libraries
 
