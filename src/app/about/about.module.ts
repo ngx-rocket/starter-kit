@@ -13,9 +13,6 @@ import { AboutComponent } from './about.component';
     IonicModule,
     AboutRoutingModule
   ],
-  entryComponents: [
-    AboutComponent
-  ],
   declarations: [
     AboutComponent
   ]

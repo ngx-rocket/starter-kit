@@ -10,7 +10,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 
 import { environment } from '@env/environment';
-import { Logger, I18nService, untilDestroyed } from '@app/core';
+import { Logger, untilDestroyed } from '@core';
+import { I18nService } from '@app/i18n';
 
 
 const log = new Logger('App');
@@ -80,7 +81,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private onCordovaReady() {
     log.debug('device ready');
 
-    if (window.cordova) {
+    if ((window as any).cordova) {
       log.debug('Cordova init');
 
       this.keyboard.hideFormAccessoryBar(true);

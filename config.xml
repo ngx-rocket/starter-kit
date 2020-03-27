@@ -6,6 +6,7 @@
   <content src="index.html"/>
   <access origin="*"/>
   <allow-navigation href="http://app/*"/>
+  <allow-navigation href="httpsionic://app/*"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
@@ -48,6 +49,7 @@
   <platform name="ios">
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
+    <preference name="iosScheme" value="httpsionic" />
     <preference name="deployment-target" value="11.0"/>
     <preference name="UIWebViewBounce" value="false"/>
     <!--

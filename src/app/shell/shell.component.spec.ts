@@ -4,10 +4,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
-import { AuthenticationService, CredentialsService, CoreModule } from '@app/core';
-import { MockAuthenticationService } from '@app/core/authentication/authentication.service.mock';
-import { MockCredentialsService } from '@app/core/authentication/credentials.service.mock';
+import { CoreModule } from '@core';
+import { AuthenticationService, CredentialsService } from '@app/auth';
+import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
+import { MockCredentialsService } from '@app/auth/credentials.service.mock';
 
+import { I18nModule } from '@app/i18n';
 import { ShellComponent } from './shell.component';
 import { AboutComponent } from '@app/about/about.component';
 import { SettingsComponent } from '@app/settings/settings.component';
@@ -25,6 +27,7 @@ describe('ShellComponent', () => {
       imports: [
         RouterTestingModule,
         TranslateModule.forRoot(),
+        I18nModule,
         IonicModule.forRoot(),
         HomeModule,
         AboutModule,
@@ -40,11 +43,6 @@ describe('ShellComponent', () => {
         ShellComponent
       ]
   })
-    .overrideComponent(ShellComponent, {
-        set: {
-          entryComponents: [HomeComponent, AboutComponent, SettingsComponent]
-        }
-      })
     .compileComponents();
   }));
 
