@@ -5,8 +5,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ActionSheetController, AlertController, Platform } from '@ionic/angular';
 import { IonicModule } from '@ionic/angular';
 
-import { SharedModule } from '@app/shared';
-import { CoreModule } from '@app/core';
+import { SharedModule } from '@shared';
+import { CoreModule } from '@core';
+import { AuthenticationService, CredentialsService } from '@app/auth';
+import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
+import { MockCredentialsService } from '@app/auth/credentials.service.mock';
 import { SettingsComponent } from './settings.component';
 
 describe('SettingsComponent', () => {
@@ -25,9 +28,11 @@ describe('SettingsComponent', () => {
         schemas: [CUSTOM_ELEMENTS_SCHEMA],
         declarations: [SettingsComponent],
         providers: [
+          { provide: AuthenticationService, useClass: MockAuthenticationService },
+          { provide: CredentialsService, useClass: MockCredentialsService },
           Platform,
           AlertController,
-          ActionSheetController,
+          ActionSheetController
         ]
       })
       .compileComponents();

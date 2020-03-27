@@ -7,15 +7,7 @@
 @import "theme/theme-variables";
 
 // 3rd party libraries
-@import "~@ionic/angular/css/core.css";
-@import "~@ionic/angular/css/normalize.css";
-@import "~@ionic/angular/css/structure.css";
-@import "~@ionic/angular/css/typography.css";
-@import "~@ionic/angular/css/padding.css";
-@import "~@ionic/angular/css/float-elements.css";
-@import "~@ionic/angular/css/text-alignment.css";
-@import "~@ionic/angular/css/text-transformation.css";
-@import "~@ionic/angular/css/flex-utils.css";
+@import "~@ionic/angular/css/ionic.bundle.css";
 
 // Theme customization
 @import "theme/theme";

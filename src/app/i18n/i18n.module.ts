@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { I18nModule } from '@app/i18n';
-import { SettingsRoutingModule } from './settings-routing.module';
-import { SettingsComponent } from './settings.component';
+import { LanguageSelectorComponent } from './language-selector.component';
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule,
+    FormsModule,
     IonicModule,
-    I18nModule,
-    SettingsRoutingModule,
   ],
   declarations: [
-    SettingsComponent
+    LanguageSelectorComponent,
+  ],
+  exports: [
+    LanguageSelectorComponent,
   ]
 })
-export class SettingsModule { }
+export class I18nModule { }

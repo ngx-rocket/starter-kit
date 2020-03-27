@@ -6,8 +6,8 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-      "strict": true,
-      "suppressImplicitAnyIndexErrors": true,
+    "strict": true,
+    "suppressImplicitAnyIndexErrors": true,
     "target": "es5",
     "typeRoots": [],
     "lib": [

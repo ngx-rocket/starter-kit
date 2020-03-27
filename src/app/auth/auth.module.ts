@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { LoginRoutingModule } from './login-routing.module';
+import { I18nModule } from '@app/i18n';
+import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login.component';
 
 @NgModule({
@@ -13,15 +13,12 @@ import { LoginComponent } from './login.component';
     CommonModule,
     ReactiveFormsModule,
     TranslateModule,
-    FormsModule,
     IonicModule,
-    LoginRoutingModule
-  ],
-  entryComponents: [
-    LoginComponent
+    I18nModule,
+    AuthRoutingModule
   ],
   declarations: [
     LoginComponent
   ]
 })
-export class LoginModule { }
+export class AuthModule { }

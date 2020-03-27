@@ -3,8 +3,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { IonicModule } from '@ionic/angular';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { CoreModule } from '@app/core';
-import { SharedModule } from '@app/shared';
+import { CoreModule } from '@core';
+import { SharedModule } from '@shared';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 

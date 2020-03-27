@@ -4,7 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
-import { CoreModule } from '@app/core';
+import { CoreModule } from '@core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
