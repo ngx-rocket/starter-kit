@@ -10,13 +10,10 @@ describe('LanguageSelectorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [
-          TranslateModule.forRoot()
-        ],
-        declarations: [LanguageSelectorComponent],
-        providers: [I18nService]
-      })
-      .compileComponents();
+      imports: [TranslateModule.forRoot()],
+      declarations: [LanguageSelectorComponent],
+      providers: [I18nService],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

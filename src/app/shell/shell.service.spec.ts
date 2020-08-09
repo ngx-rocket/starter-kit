@@ -6,16 +6,10 @@ import { ShellComponent } from './shell.component';
 import { Shell } from './shell.service';
 
 describe('Shell', () => {
-
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ShellComponent
-      ],
-      providers: [
-        AuthenticationGuard,
-        { provide: AuthenticationService, useClass: MockAuthenticationService },
-      ]
+      declarations: [ShellComponent],
+      providers: [AuthenticationGuard, { provide: AuthenticationService, useClass: MockAuthenticationService }],
     });
   });
 

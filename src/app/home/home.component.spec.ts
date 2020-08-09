@@ -12,15 +12,10 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [
-          CoreModule,
-          SharedModule,
-          HttpClientTestingModule
-        ],
-        declarations: [HomeComponent],
-        providers: [QuoteService]
-      })
-      .compileComponents();
+      imports: [CoreModule, SharedModule, HttpClientTestingModule],
+      declarations: [HomeComponent],
+      providers: [QuoteService],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

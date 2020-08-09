@@ -9,7 +9,7 @@ describe('CredentialsService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CredentialsService]
+      providers: [CredentialsService],
     });
 
     credentialsService = TestBed.inject(CredentialsService);

@@ -1,4 +1,4 @@
-# ngX-Rocket
+# Rat Habitat
 
 Welcome to the project documentation!
 

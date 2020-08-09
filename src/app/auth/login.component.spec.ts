@@ -17,17 +17,9 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        NgbModule,
-        RouterTestingModule,
-        TranslateModule.forRoot(),
-        I18nModule,
-        ReactiveFormsModule,
-        CoreModule
-      ],
-      declarations: [LoginComponent]
-    })
-    .compileComponents();
+      imports: [NgbModule, RouterTestingModule, TranslateModule.forRoot(), I18nModule, ReactiveFormsModule, CoreModule],
+      declarations: [LoginComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

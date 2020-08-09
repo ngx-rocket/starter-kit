@@ -1,4 +1,4 @@
-# ngX Starter Kit
+# Rat Habitat Angular Project
 
 Web project starter kit including modern tools and workflow based on
 [angular-cli](https://github.com/angular/angular-cli), best practices from the community, a scalable base template and
@@ -6,26 +6,20 @@ a good learning base.
 
 Generated using [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket).
 
-### Benefits
-
-- Quickstart a project in seconds and focus on features, not on frameworks or tools
-
-- Industrial-grade tools, ready for usage in a continuous integration environment and DevOps
-
-- Scalable architecture with base app template including example components, services and tests
-
 # Getting started
 
 1. Go to project folder and install dependencies:
- ```bash
- npm install
- ```
- 
+
+```bash
+npm install
+```
+
 2. Launch development server, and open `localhost:4200` in your browser:
- ```bash
- npm start
- ```
- 
+
+```bash
+npm start
+```
+
 # Project structure
 
 ```
@@ -57,16 +51,16 @@ proxy.conf.js                backend proxy configuration
 
 Task automation is based on [NPM scripts](https://docs.npmjs.com/misc/scripts).
 
-Tasks                         | Description
-------------------------------|---------------------------------------------------------------------------------------
-npm start                     | Run development server on `http://localhost:4200/`
-npm run build [-- --env=prod] | Lint code and build app for production in `dist/` folder
-npm test                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
-npm run test:ci               | Lint code and run unit tests once for continuous integration
-npm run e2e                   | Run e2e tests using [Protractor](http://www.protractortest.org)
-npm run lint                  | Lint code
-npm run translations:extract  | Extract strings from code and templates to `src/app/translations/template.json`
-npm run docs                  | Display project documentation
+| Tasks                         | Description                                                                     |
+| ----------------------------- | ------------------------------------------------------------------------------- |
+| npm start                     | Run development server on `http://localhost:4200/`                              |
+| npm run build [-- --env=prod] | Lint code and build app for production in `dist/` folder                        |
+| npm test                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode        |
+| npm run test:ci               | Lint code and run unit tests once for continuous integration                    |
+| npm run e2e                   | Run e2e tests using [Protractor](http://www.protractortest.org)                 |
+| npm run lint                  | Lint code                                                                       |
+| npm run translations:extract  | Extract strings from code and templates to `src/app/translations/template.json` |
+| npm run docs                  | Display project documentation                                                   |
 
 When building the application, you can specify the target environment using the additional flag `--env <name>` (do not
 forget to prepend `--` to pass arguments to npm scripts).

@@ -10,7 +10,7 @@ describe('AuthenticationService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [{ provide: CredentialsService, useClass: MockCredentialsService }, AuthenticationService]
+      providers: [{ provide: CredentialsService, useClass: MockCredentialsService }, AuthenticationService],
     });
 
     authenticationService = TestBed.inject(AuthenticationService);
@@ -24,12 +24,12 @@ describe('AuthenticationService', () => {
       // Act
       const request = authenticationService.login({
         username: 'toto',
-        password: '123'
+        password: '123',
       });
       tick();
 
       // Assert
-      request.subscribe(credentials => {
+      request.subscribe((credentials) => {
         expect(credentials).toBeDefined();
         expect(credentials.token).toBeDefined();
       });
@@ -41,7 +41,7 @@ describe('AuthenticationService', () => {
       // Act
       const request = authenticationService.login({
         username: 'toto',
-        password: '123'
+        password: '123',
       });
       tick();
 
@@ -58,7 +58,7 @@ describe('AuthenticationService', () => {
       // Act
       const request = authenticationService.login({
         username: 'toto',
-        password: '123'
+        password: '123',
       });
       tick();
 
@@ -74,7 +74,7 @@ describe('AuthenticationService', () => {
       const request = authenticationService.login({
         username: 'toto',
         password: '123',
-        remember: true
+        remember: true,
       });
       tick();
 
@@ -91,7 +91,7 @@ describe('AuthenticationService', () => {
       // Arrange
       const loginRequest = authenticationService.login({
         username: 'toto',
-        password: '123'
+        password: '123',
       });
       tick();
 
