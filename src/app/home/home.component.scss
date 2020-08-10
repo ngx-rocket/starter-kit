@@ -1,9 +1,101 @@
-.logo {
-  width: 100px;
+.container {
+  width: 30rem;
+  height: 20rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(5px);
 }
 
-q {
-  font-style: italic;
-  font-size: 1.2rem;
-  quotes: "« " " »";
+%fixedbox {
+  // Basic styling
+  box-sizing: border-box;
+  display: block;
+  font-size: 4em;
+  padding: 1em;
+  width: 10em;
+  height: 10em;
+
+  // Center box in middle of screen
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.content {
+  // Basic styling
+  @extend %fixedbox;
+
+  font-weight: bold;
+  text-align: center;
+  z-index: 1000;
+
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(5px);
+
+  // Cut-out text effect
+  color: #fff;
+  mix-blend-mode: lighten;
+}
+
+section {
+  // Background image styling
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  // Reset stacking context
+  isolation: isolate;
+
+  // Must be set to correctly position .wrapper below
+  position: relative;
+
+  // Height not required. Can be left as auto
+  height: 100vh;
+  padding: 1em;
+}
+
+.wrapper {
+  // Hides box (&:before) outside of section
+  clip: rect(auto auto auto auto);
+
+  // Clip works only on positions absolute or fixed
+  position: absolute;
+  // Stretch to fill entire section
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &:before {
+    content: " ";
+
+    // Basic styling
+    @extend %fixedbox;
+    padding: 2em 3.5em;
+
+    // Blend with background
+    mix-blend-mode: darken;
+  }
+}
+
+.one {
+  // Section background image
+  background-image: url(../../assets/RustBackground.png);
+}
+
+.two {
+  background-image: url(../../assets/MinecraftBackground.png);
+}
+
+.three {
+  background-image: url(../../assets/FactorioBackground.png);
+}
+
+.four {
+  background-image: url(../../assets/TerrariaBackground.png);
 }
