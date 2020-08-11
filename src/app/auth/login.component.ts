@@ -1,3 +1,5 @@
+import { CredentialsService } from '@app/auth';
+import { CredentialsService } from './credentials.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -24,43 +26,22 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private credentialsService: CredentialsService
   ) {
-    this.createForm();
+    const currentRoute = this.router.url;
+    if (currentRoute.includes('login-results')) {
+      this.authenticationService.getUserInfo().subscribe((results: any) => {
+        if (results) {
+          this.router.navigate([this.route.snapshot.queryParams.redirect || '/'], { replaceUrl: true });
+        }
+      });
+    } else {
+      this.authenticationService.login();
+    }
   }
 
   ngOnInit() {}
 
   ngOnDestroy() {}
-
-  login() {
-    this.isLoading = true;
-    const login$ = this.authenticationService.login(this.loginForm.value);
-    login$
-      .pipe(
-        finalize(() => {
-          this.loginForm.markAsPristine();
-          this.isLoading = false;
-        }),
-        untilDestroyed(this)
-      )
-      .subscribe(
-        (credentials) => {
-          log.debug(`${credentials.username} successfully logged in`);
-          this.router.navigate([this.route.snapshot.queryParams.redirect || '/'], { replaceUrl: true });
-        },
-        (error) => {
-          log.debug(`Login error: ${error}`);
-          this.error = error;
-        }
-      );
-  }
-
-  private createForm() {
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      remember: true,
-    });
-  }
 }
