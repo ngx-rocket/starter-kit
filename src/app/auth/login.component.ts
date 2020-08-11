@@ -1,5 +1,3 @@
-import { CredentialsService } from '@app/auth';
-import { CredentialsService } from './credentials.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -26,8 +24,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private authenticationService: AuthenticationService,
-    private credentialsService: CredentialsService
+    private authenticationService: AuthenticationService
   ) {
     const currentRoute = this.router.url;
     if (currentRoute.includes('login-results')) {
