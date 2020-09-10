@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
@@ -10,7 +10,7 @@ describe('LanguageSelectorComponent', () => {
   let component: LanguageSelectorComponent;
   let fixture: ComponentFixture<LanguageSelectorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
         imports: [
           TranslateModule.forRoot(),
