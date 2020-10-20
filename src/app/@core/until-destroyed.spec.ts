@@ -7,7 +7,7 @@ function createObserver() {
   return {
     next: jasmine.createSpy(),
     error: jasmine.createSpy(),
-    complete: jasmine.createSpy()
+    complete: jasmine.createSpy(),
   };
 }
 

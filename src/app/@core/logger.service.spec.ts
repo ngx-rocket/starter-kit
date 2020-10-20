@@ -22,7 +22,9 @@ describe('Logger', () => {
   });
 
   afterAll(() => {
-    logMethods.forEach((m) => { console[m] = savedConsole[m]; });
+    logMethods.forEach((m) => {
+      console[m] = savedConsole[m];
+    });
     Logger.level = savedLevel;
     Logger.outputs = savedOutputs;
   });

@@ -2,7 +2,7 @@
   "name": "ng-x-rocket",
   "version": "1.0.0",
   "private": true,
-    "scripts": {
+  "scripts": {
     "ng": "ng",
     "build": "npm run env -s && ng build --prod",
     "start": "npm run env -s && ng serve --proxy-config proxy.conf.js",

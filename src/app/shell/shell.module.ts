@@ -5,23 +5,12 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { I18nModule } from '@app/i18n';
-import { AuthModule } from '@app/auth';
 import { ShellComponent } from './shell.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    NgbModule,
-    AuthModule,
-    I18nModule,
-    RouterModule
-  ],
-  declarations: [
-    HeaderComponent,
-    ShellComponent
-  ]
+  imports: [CommonModule, TranslateModule, NgbModule, I18nModule, RouterModule],
+  declarations: [HeaderComponent, ShellComponent],
+  exports: [HeaderComponent],
 })
-export class ShellModule {
-}
+export class ShellModule {}

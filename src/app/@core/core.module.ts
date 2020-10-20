@@ -9,36 +9,29 @@ import { ApiPrefixInterceptor } from './http/api-prefix.interceptor';
 import { ErrorHandlerInterceptor } from './http/error-handler.interceptor';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    TranslateModule,
-    RouterModule
-  ],
+  imports: [CommonModule, HttpClientModule, TranslateModule, RouterModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiPrefixInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorHandlerInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: RouteReuseStrategy,
-      useClass: RouteReusableStrategy
-    }
-  ]
+      useClass: RouteReusableStrategy,
+    },
+  ],
 })
 export class CoreModule {
-
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     // Import guard
     if (parentModule) {
       throw new Error(`${parentModule} has already been loaded. Import Core module in the AppModule only.`);
     }
   }
-
 }

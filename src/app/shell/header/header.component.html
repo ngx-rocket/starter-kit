@@ -1,8 +1,14 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="https://github.com/ngx-rocket" translate>APP_NAME</a>
-    <button class="navbar-toggler" type="button" aria-controls="navbar-menu"
-            aria-label="Toggle navigation" (click)="toggleMenu()" [attr.aria-expanded]="!menuHidden">
+    <button
+      class="navbar-toggler"
+      type="button"
+      aria-controls="navbar-menu"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="!menuHidden"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navbar-menu" class="collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
@@ -24,7 +30,8 @@
           </a>
           <div ngbDropdownMenu aria-labelledby="user-dropdown" class="dropdown-menu dropdown-menu-right">
             <h6 class="dropdown-header">
-              <span translate>Logged in as</span> <b>{{username}}</b></h6>
+              <span translate>Logged in as</span> <b>{{ username }}</b>
+            </h6>
             <div class="dropdown-divider"></div>
             <button class="dropdown-item" (click)="logout()" translate>Logout</button>
           </div>
