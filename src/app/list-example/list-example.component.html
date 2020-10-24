@@ -1,0 +1,39 @@
+
+ <div class="caixa-conteudo">
+  <div class="table-responsive">
+    <table #myDiv id="gridHoliday" class="row-border hover" datatable
+    [dtOptions]="dtOptions" [dtTrigger]="dtTriggerUser" >
+        <thead>
+            <tr>
+              <th width="20%">Id</th>
+              <th width="20%">Login</th>
+              <th width="10%">Type</th>
+              <th width="10%" ></th>
+              <th width="10%" ></th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; trackBy: trackById">
+            <td>
+              {{ user.id }}
+            </td>
+            <td>
+              {{ user.login }}
+            </td>
+            <td>
+              {{ user.type }}
+            </td>
+            <td>
+
+              <input type="button" value="editar" >
+            </td>
+            <td>
+
+              <input type="button" value="excluir" >
+            </td>
+            
+              </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

@@ -15,3 +15,61 @@
 
 // Theme customization
 @import "theme/theme";
+
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  position: relative;
+}
+
+body {
+  background-color: #F0F0F0;
+  margin: 0;
+  padding: 0;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, Verdana;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.colIcons .icon-trash{
+  color: #ff4141;
+}
+
+.caixa-conteudo {
+  padding: 15px;
+}
+
+.dataTables_paginate paging_full_numbers{
+  clear:both;
+  margin-top:6px !important;
+  margin-bottom:6px !important;
+  max-width:none !important;
+  border-collapse:separate !important
+}
+
+.dataTables_length select{
+ width: 100px!important;
+}
+
+.dataTables_filter input {
+ border: 1px solid #ccc;
+}
+
+.dataTables_master_detail {
+border-collapse: collapse;
+border-spacing: 0;
+margin-top: 0.5em;
+margin-bottom: 0.5em;
+}
+
+.dataTables_master_detail .icon-circle{
+font-size: 8px!important;
+}
+
