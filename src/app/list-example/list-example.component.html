@@ -1,4 +1,4 @@
-<input style="margin-left: 80%" type="button" value="new user" (click)="open(content)"  />
+<input style="margin-left: 50%" type="button" class="btn btn-dark" value="new user" (click)="open(content)" />
 <div class="caixa-conteudo">
   <div class="table-responsive">
     <table
@@ -30,10 +30,10 @@
             {{ user.type }}
           </td>
           <td>
-            <input type="button" value="edit" />
+            <input type="button" value="edit" class="btn btn-primary" (click)="open(content, user)" />
           </td>
           <td>
-            <input type="button" value="delete" />
+            <input type="button" value="delete" class="btn btn-danger" (click)="confirmDelete()" />
           </td>
         </tr>
       </tbody>
@@ -49,20 +49,20 @@
     </button>
   </div>
   <div class="modal-body">
- <form [formGroup]="userForm">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label>Login</label>
-      <input formControlName="login" type="test"  >
-    </div>
-    <div class="form-group col-md-6">
-      <label>type</label>
-      <input formControlName="type" type="text" class="form-control" >
-    </div>
-  </div>
- </form>
+    <form [formGroup]="userForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Login</label>
+          <input formControlName="login" class="form-control"  type="test" />
+        </div>
+        <div class="form-group col-md-6">
+          <label>type</label>
+          <input formControlName="type" type="text" class="form-control" />
+        </div>
+      </div>
+    </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
   </div>
 </ng-template>

@@ -4,9 +4,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ExampleServiceService } from './example-service.service';
 import { User } from './user.interface';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup } from '@angular/forms';
-
 
 @Component({
   selector: 'app-list-example',
@@ -16,7 +15,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ListExampleComponent implements OnInit, OnDestroy {
   usersServices: User[] = [];
   users: User[] = [];
-
+  user: User = {
+    id: 0,
+    login: '',
+    type: '',
+  }
+  isEdit = false;
   userForm: FormGroup;
 
   @ViewChild(DataTableDirective, { static: false }) datatableElement: DataTableDirective;
@@ -56,14 +60,12 @@ export class ListExampleComponent implements OnInit, OnDestroy {
   closeResult = '';
   private ngProcessosUnsubscribe = new Subject();
 
-  constructor(private exampleService: ExampleServiceService,
-    private modalService: NgbModal) {}
+  constructor(private exampleService: ExampleServiceService, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.userForm = new FormGroup({
       login: new FormControl(null),
       type: new FormControl(null),
-
     });
     this.getUsers();
   }
@@ -96,14 +98,59 @@ export class ListExampleComponent implements OnInit, OnDestroy {
     });
   }
 
-
-  open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-
-    });
+  open(content: any, user?: User) {
+    if(user)
+    {
+      this.user = user;
+      this.isEdit = true;
+      this.userForm.controls.login.setValue(user.login);
+      this.userForm.controls.type.setValue(user.type);
+    }
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {}
+    );
   }
+
+  save()
+  {
+    const user: User = {
+      id: 999,
+      login: this.userForm.get('login').value,
+      type: this.userForm.get('type').value
+    }
+if(this.isEdit)
+{
+  const useredit = this.users.indexOf(this.user)
+  this.users.splice(useredit, 1, user);
+  this.isEdit = false;
+  this.userForm.controls.login.setValue(null);
+  this.userForm.controls.type.setValue(null);
+}
+else
+{
+  this.users.push(user);
+
+}
+
+    this.modalService.dismissAll();
+  }
+
+  confirmDelete() {
+    const isDeleting = confirm('Would you like to delete this user?');
+    if (!isDeleting) {
+      return;
+    }
+
+    this.delete();
+  }
+
+  private delete() {
+    const userremove = this.users.indexOf(this.user)
+  this.users.splice(userremove, 1);
+    }
 
   ngOnDestroy(): void {
     this.dtTriggerUser.unsubscribe();
