@@ -3,15 +3,21 @@ import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ExampleServiceService } from './example-service.service';
-import {User} from './user.interface';
+import { User } from './user.interface';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup } from '@angular/forms';
+
+
 @Component({
   selector: 'app-list-example',
   templateUrl: './list-example.component.html',
   styleUrls: ['./list-example.component.scss'],
 })
-export class ListExampleComponent implements OnInit, OnDestroy  {
-  usersServices: User [] = [];
-  users: User [] = [];
+export class ListExampleComponent implements OnInit, OnDestroy {
+  usersServices: User[] = [];
+  users: User[] = [];
+
+  userForm: FormGroup;
 
   @ViewChild(DataTableDirective, { static: false }) datatableElement: DataTableDirective;
   isDtInitialized = false;
@@ -47,11 +53,18 @@ export class ListExampleComponent implements OnInit, OnDestroy  {
   dtInstance: DataTables.Api;
   dtTriggerUser = new Subject();
 
+  closeResult = '';
   private ngProcessosUnsubscribe = new Subject();
 
-  constructor(private exampleService: ExampleServiceService) {}
+  constructor(private exampleService: ExampleServiceService,
+    private modalService: NgbModal) {}
 
   ngOnInit(): void {
+    this.userForm = new FormGroup({
+      login: new FormControl(null),
+      type: new FormControl(null),
+
+    });
     this.getUsers();
   }
 
@@ -60,29 +73,34 @@ export class ListExampleComponent implements OnInit, OnDestroy  {
   }
 
   getUsers() {
-    this.exampleService.getUsers()
-    .pipe(takeUntil(this.ngProcessosUnsubscribe))
-    .subscribe((users) => {
-      console.log(users);
-      const data = users;
-      this.usersServices = JSON.parse(JSON.stringify(data))  ;
-      this.users = [];
-      this.users = this.usersServices.slice(15);
-
-    });
+    this.exampleService
+      .getUsers()
+      .pipe(takeUntil(this.ngProcessosUnsubscribe))
+      .subscribe((users) => {
+        console.log(users);
+        const data = users;
+        this.usersServices = JSON.parse(JSON.stringify(data));
+        this.users = [];
+        this.users = this.usersServices.slice(15);
+      });
   }
 
-  addUser(user:User)
-  {
-    this.users.push(user)
+  addUser(user: User) {
+    this.users.push(user);
   }
 
   rerender(): void {
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
- 
       dtInstance.destroy();
       this.dtTriggerUser.next();
+    });
+  }
 
+
+  open(content: any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
 
     });
   }
@@ -91,7 +109,5 @@ export class ListExampleComponent implements OnInit, OnDestroy  {
     this.dtTriggerUser.unsubscribe();
     this.ngProcessosUnsubscribe.next();
     this.ngProcessosUnsubscribe.complete();
-
   }
-
 }

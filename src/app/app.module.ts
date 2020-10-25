@@ -26,9 +26,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CoreModule,
     SharedModule,
     ShellModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     AboutModule,
     HomeModule,
+    FormsModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],

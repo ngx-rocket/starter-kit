@@ -1,39 +1,68 @@
-
- <div class="caixa-conteudo">
+<input style="margin-left: 80%" type="button" value="new user" (click)="open(content)"  />
+<div class="caixa-conteudo">
   <div class="table-responsive">
-    <table #myDiv id="gridHoliday" class="row-border hover" datatable
-    [dtOptions]="dtOptions" [dtTrigger]="dtTriggerUser" >
-        <thead>
-            <tr>
-              <th width="20%">Id</th>
-              <th width="20%">Login</th>
-              <th width="10%">Type</th>
-              <th width="10%" ></th>
-              <th width="10%" ></th>
-            </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of users; trackBy: trackById">
-            <td>
-              {{ user.id }}
-            </td>
-            <td>
-              {{ user.login }}
-            </td>
-            <td>
-              {{ user.type }}
-            </td>
-            <td>
-
-              <input type="button" value="editar" >
-            </td>
-            <td>
-
-              <input type="button" value="excluir" >
-            </td>
-            
-              </tr>
-        </tbody>
+    <table
+      #myDiv
+      id="gridHoliday"
+      class="row-border hover"
+      datatable
+      [dtOptions]="dtOptions"
+      [dtTrigger]="dtTriggerUser"
+    >
+      <thead>
+        <tr>
+          <th width="20%">Id</th>
+          <th width="20%">Login</th>
+          <th width="10%">Type</th>
+          <th width="10%"></th>
+          <th width="10%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; trackBy: trackById">
+          <td>
+            {{ user.id }}
+          </td>
+          <td>
+            {{ user.login }}
+          </td>
+          <td>
+            {{ user.type }}
+          </td>
+          <td>
+            <input type="button" value="edit" />
+          </td>
+          <td>
+            <input type="button" value="delete" />
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+ <form [formGroup]="userForm">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Login</label>
+      <input formControlName="login" type="test"  >
+    </div>
+    <div class="form-group col-md-6">
+      <label>type</label>
+      <input formControlName="type" type="text" class="form-control" >
+    </div>
+  </div>
+ </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
