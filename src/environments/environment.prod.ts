@@ -10,7 +10,9 @@ export const environment = {
   production: true,
   hmr: false,
   version: env.npm_package_version,
-  serverUrl: 'https://api.chucknorris.io',
+  serverUrl: '/api',
   defaultLanguage: 'en-US',
-  supportedLanguages: ['en-US', 'fr-FR'],
+  supportedLanguages: ['en-US', 'fr-FR', 'span-SP', 'ger-GR'],
+  domain: 'dev-q8rfvtbu.us.auth0.com',
+  client_id: 'Cmr3uzBlb5wDNOgmyfj1shXP2lUbhiXS',
 };

@@ -1,0 +1,15 @@
+{
+  "APP_NAME": "Hábitat de ratas",
+  "About": "acerca de",
+  "Home": "hogar",
+  "Logged in as": "Conectado como",
+  "Login": "Iniciar sesión",
+  "Logout": "Cerrar sesión",
+  "Password": "Contraseña",
+  "Password is required": "se requiere contraseña",
+  "Username": "Nombre de usuario",
+  "Username is required": "Se requiere nombre de usuario",
+  "Username or password incorrect.": "Usuario o contraseña incorrectos.",
+  "Remember me": "Recuérdame",
+  "Version": "Versión"
+}

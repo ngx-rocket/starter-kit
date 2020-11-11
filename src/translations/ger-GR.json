@@ -1,0 +1,15 @@
+{
+  "APP_NAME": "Rattenlebensraum",
+  "About": "Über",
+  "Home": "Zuhause",
+  "Logged in as": "Angemeldet als",
+  "Login": "Einloggen",
+  "Logout": "Ausloggen",
+  "Password": "Passwort",
+  "Password is required": "Passwort wird benötigt",
+  "Username": "Nutzername",
+  "Username is required": "Benutzername wird benötigt",
+  "Username or password incorrect.": "Benutzername oder Passwort falsch.",
+  "Remember me": "Behalte mich in Erinnerung",
+  "Version": "Ausführung"
+}
