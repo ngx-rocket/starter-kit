@@ -41,7 +41,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -73,14 +72,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-x-rocket:build",
-            "hmr": true,
-            "hmrWarning": false
+            "browserTarget": "ng-x-rocket:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-x-rocket:build:production",
-              "hmr": false
+              "browserTarget": "ng-x-rocket:build:production"
             },
             "ci": {
               "progress": false
