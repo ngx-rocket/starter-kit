@@ -1,20 +1,21 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, untilDestroyed } from '@core';
+import { Logger, UntilDestroy, untilDestroyed } from '@core';
 import { AuthenticationService } from './authentication.service';
 
 const log = new Logger('Login');
 
+@UntilDestroy()
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
 
   version: string | null = environment.version;
   error: string | undefined;
@@ -29,8 +30,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() { }
-
-  ngOnDestroy() { }
 
   login() {
     this.isLoading = true;
