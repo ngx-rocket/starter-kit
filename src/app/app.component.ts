@@ -6,11 +6,12 @@ import { merge } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 
 import { environment } from '@env/environment';
-import { Logger, untilDestroyed } from '@core';
+import { Logger, UntilDestroy, untilDestroyed } from '@core';
 import { I18nService } from '@app/i18n';
 
 const log = new Logger('App');
 
+@UntilDestroy()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
