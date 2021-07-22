@@ -69,7 +69,7 @@ describe('Logger', () => {
 
     // Assert
     expect(outputSpy).toHaveBeenCalled();
-    expect(outputSpy.calls.count()).toBe(2);
+      expect(outputSpy.calls.count()).toBe(2);
     expect(outputSpy).toHaveBeenCalledWith('test', LogLevel.Warning, 'w');
     expect(outputSpy).toHaveBeenCalledWith('test', LogLevel.Error, 'e', { error: true });
   });

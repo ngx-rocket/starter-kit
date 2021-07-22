@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@app/material.module';
 
-import { CoreModule } from '@core';
 import { AuthenticationService, CredentialsService } from '@app/auth';
 import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
 import { MockCredentialsService } from '@app/auth/credentials.service.mock';
@@ -21,13 +20,12 @@ describe('ShellComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
         TranslateModule.forRoot(),
         I18nModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
         MaterialModule,
-        CoreModule
+        RouterTestingModule
       ],
       providers: [
         { provide: AuthenticationService, useClass: MockAuthenticationService },

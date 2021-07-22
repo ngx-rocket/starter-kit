@@ -5,7 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
 import { MaterialModule } from '@app/material.module';
 import { AuthenticationService, CredentialsService } from '@app/auth';
@@ -28,8 +27,7 @@ describe('LoginComponent', () => {
         RouterTestingModule,
         TranslateModule.forRoot(),
         I18nModule,
-        ReactiveFormsModule,
-        CoreModule
+        ReactiveFormsModule
       ],
       declarations: [LoginComponent]
     })
