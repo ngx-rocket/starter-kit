@@ -5,7 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule, LoadingController, Platform } from '@ionic/angular';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { CoreModule } from '@core';
 import { AuthenticationService, CredentialsService } from '@app/auth';
 import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
 import { MockCredentialsService } from '@app/auth/credentials.service.mock';
@@ -23,8 +22,7 @@ describe('LoginComponent', () => {
         RouterTestingModule,
         TranslateModule.forRoot(),
         I18nModule,
-        ReactiveFormsModule,
-        CoreModule
+        ReactiveFormsModule
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [

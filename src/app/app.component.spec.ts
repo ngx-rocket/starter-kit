@@ -4,18 +4,18 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
-import { CoreModule } from '@core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+
+
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [
         IonicModule.forRoot(),
         RouterTestingModule,
-        TranslateModule.forRoot(),
-        CoreModule
+        TranslateModule.forRoot()
       ],
       declarations: [AppComponent],
       providers: []

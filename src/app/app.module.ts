@@ -1,13 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
-import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
-import { CoreModule } from '@core';
-import { SharedModule } from '@shared';
+import { RouteReusableStrategy, ApiPrefixInterceptor, ErrorHandlerInterceptor, SharedModule } from '@shared';
 import { AuthModule } from '@app/auth';
 import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
@@ -21,9 +20,9 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    RouterModule,
     TranslateModule.forRoot(),
     IonicModule.forRoot(),
-    CoreModule,
     SharedModule,
     ShellModule,
     HomeModule,
@@ -34,6 +33,20 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   declarations: [AppComponent],
   providers: [
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: ApiPrefixInterceptor,
+        multi: true
+      },
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: ErrorHandlerInterceptor,
+        multi: true
+      },
+      {
+        provide: RouteReuseStrategy,
+        useClass: RouteReusableStrategy
+      },
   ],
   bootstrap: [AppComponent]
 })

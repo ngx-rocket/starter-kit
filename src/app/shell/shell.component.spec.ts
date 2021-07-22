@@ -4,7 +4,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
-import { CoreModule } from '@core';
 import { AuthenticationService, CredentialsService } from '@app/auth';
 import { MockAuthenticationService } from '@app/auth/authentication.service.mock';
 import { MockCredentialsService } from '@app/auth/credentials.service.mock';
@@ -25,14 +24,13 @@ describe('ShellComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
         TranslateModule.forRoot(),
         I18nModule,
         IonicModule.forRoot(),
         HomeModule,
         AboutModule,
         SettingsModule,
-        CoreModule
+        RouterTestingModule
       ],
       providers: [
         { provide: AuthenticationService, useClass: MockAuthenticationService },
