@@ -7,7 +7,6 @@ import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
-import { CoreModule } from '@core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -30,8 +29,7 @@ describe('AppComponent', () => {
       imports: [
         IonicModule.forRoot(),
         RouterTestingModule,
-        TranslateModule.forRoot(),
-        CoreModule
+        TranslateModule.forRoot()
       ],
       declarations: [AppComponent],
       providers: [

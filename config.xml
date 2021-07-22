@@ -15,8 +15,8 @@
   <allow-intent href="geo:*"/>
 
   <!-- Platforms -->
-  <engine name="android" spec="^8.0.0"/>
-  <engine name="ios" spec="^5.0.0"/>
+  <engine name="android" spec="^9.0.0"/>
+  <engine name="ios" spec="^6.2.0"/>
 
   <!-- Android specific -->
   <platform name="android">

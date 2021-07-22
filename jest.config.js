@@ -6,8 +6,6 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/src/setup-jest.ts'],
   moduleNameMapper: {
     '@app/(.*)': '<rootDir>/src/app/$1',
-    '@core': ['<rootDir>/src/app/@core'],
-    '@core/(.*)': ['<rootDir>/src/app/@core/$1'],
     '@shared': ['<rootDir>/src/app/@shared'],
     '@shared/(.*)': ['<rootDir>/src/app/@shared/$1'],
     '@env': '<rootDir>/src/environments/environment'
@@ -15,7 +13,10 @@ module.exports = {
   globals: {
     'ts-jest': {
       allowSyntheticDefaultImports: true,
-      tsconfig: '<rootDir>/tsconfig.spec.json'
+      tsconfig: '<rootDir>/tsconfig.spec.json',
+      diagnostics: {
+        ignoreCodes: ['TS151001'],
+      }
     },
   },
   // Do not ignore librairies such as ionic, ionic-native or bootstrap to transform them during unit testing.
