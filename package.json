@@ -64,6 +64,7 @@
     "htmlhint": "^0.15.1",
     "https-proxy-agent": "^5.0.0",
     "jest": "^27.0.6",
+    "ts-jest": "^27.0.5",
     "prettier": "^2.2.1",
     "stylelint-config-prettier": "^8.0.2",
     "pretty-quick": "^3.1.0",
