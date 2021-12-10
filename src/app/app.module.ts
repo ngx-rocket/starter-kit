@@ -5,9 +5,9 @@ import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
-import { Keyboard } from '@ionic-native/keyboard/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { Keyboard } from '@awesome-cordova-plugins/keyboard/ngx';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
+import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 
 import { RouteReusableStrategy, ApiPrefixInterceptor, ErrorHandlerInterceptor, SharedModule } from '@shared';
 import { AuthModule } from '@app/auth';

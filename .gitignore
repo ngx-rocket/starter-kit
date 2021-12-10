@@ -44,6 +44,7 @@ xcuserdata/
 /log
 
 # Misc
+/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage
@@ -55,6 +56,7 @@ testem.log
 /reports
 /src/translations/template.*
 /src/environments/.env.*
+/cypress/videos/
 
 # System Files
 .DS_Store

@@ -5,9 +5,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { merge } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 import { Platform } from '@ionic/angular';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
+import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
+import { Keyboard } from '@awesome-cordova-plugins/keyboard/ngx';
 
 import { environment } from '@env/environment';
 import { Logger, UntilDestroy, untilDestroyed } from '@shared';
@@ -63,7 +63,7 @@ export class AppComponent implements OnInit, OnDestroy {
         untilDestroyed(this)
       )
       .subscribe(event => {
-        const title = event.title;
+        const title = event['title'];
         if (title) {
           this.titleService.setTitle(this.translateService.instant(title));
         }
