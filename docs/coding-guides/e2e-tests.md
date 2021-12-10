@@ -6,20 +6,9 @@ While unit tests are the first choice for catching bugs and regression on indivi
 complement them with test cases covering the integration between the individual components, hence the need for E2E
 tests.
 
-These tests use [Protractor](https://github.com/angular/protractor), which is a framework built for Angular on top of
-[Selenium](https://github.com/SeleniumHQ/selenium) to control browsers and simulate user inputs.
-[Jasmine](http://jasmine.github.io) is used as the base test framework.
+These tests use [Cypress](https://www.cypress.io/), which is a next generation front end testing tool built for the modern web.
 
-Many of protractor's actions and assertions are asynchronous and return promises. To ensure that test steps are
-performed in the intended order, generated projects are set up to use async/await as the flow control mechanism
-because of its good readability. See the [Protractor async/await](https://www.protractortest.org/#/async-await) page
-for more information and examples on using async/await in tests, and the
-[Protractor API guide](https://www.protractortest.org/#/api) to determine which API calls are asynchronous.
-
-Beware that some examples of protractor tests you'll find on the internet might not be using async/await. Tests like
-these that you encounter were using the now-deprecated "selenium promise manager" flow control mechanism, so they
-should not be used verbatim. See the [Protractor control flow](https://www.protractortest.org/#/control-flow) page
-for more details.
+If you are new to Cypress, you can read the [introduction guide](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress#Cypress-Can-Be-Simple-Sometimes), as although it seems similar on the surface as other tools like Selenium or Protractor, Cypress is fundamentally different.
 
 ## Good practices
 
@@ -47,20 +36,29 @@ If the UI changes, the fix only needs to be applied in one place.
 
 ```typescript
 // login.po.ts
-import { browser, element, by } from 'protractor';
-
 export class LoginPage {
-  emailInput = element(by.css('input[name=^"email"]'));
-  passwordInput = element(by.css('input[name=^"password"]'));
-  loginButton = element(by.css('button[(click)^="login"]'));
-  registerButton = element(by.css('button[(click)^="register"]'));
-
-  async navigateTo() {
-    await browser.get('/');
+  get emailInput() {
+    return cy.get('input[name=^"email"]');
   }
 
-  async getGreetingText() {
-    return await element(by.css('.greeting')).getText();
+  get passwordInput() {
+    return cy.get('input[name=^"password"]');
+  }
+
+  get loginButton() {
+    return cy.get('button[(click)^="login"]');
+  }
+
+  get registerButton() {
+    return cy.get('button[(click)^="register"]');
+  }
+
+  get greeting() {
+    return cy.get('.greeting');
+  }
+
+  visit() {
+    cy.visit('/');
   }
 }
 ```
@@ -76,21 +74,19 @@ describe('Login', () => {
 
   beforeEach(async () => {
     page = new LoginPage();
-    await page.navigateTo();
+    page.visit();
   });
 
-  it('should navigate to the register page when the register button is clicked', async () => {
-    await page.registerButton.click();
-
-    expect(await browser.getCurrentUrl()).toContain('/register');
+  it('should navigate to the register page when the register button is clicked', () => {
+    page.registerButton.click();
+    cy.url().should('include', '/register');
   });
 
   it('should allow a user to log in', async () => {
-    await page.emailInput.sendKeys('test@mail.com');
-    await page.passwordInput.sendKeys('abc123');
-    await page.loginButton.click();
-
-    expect(await page.getGreetingText()).toContain('Welcome, Test User');
+    page.emailInput.type('test@mail.com');
+    page.passwordInput.type('abc123');
+    page.loginButton.click();
+    page.greeting.contains('Welcome, Test User');
   });
 });
 ```

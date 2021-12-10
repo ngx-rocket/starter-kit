@@ -11,7 +11,7 @@
 }
 
 .has-border {
-  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  border-right: 1px solid rgb(0 0 0 / 12%);
 }
 
 .mat-list {
@@ -22,7 +22,7 @@
   text-decoration: none;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgb(0 0 0 / 5%);
   }
 }
 
