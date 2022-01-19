@@ -39,7 +39,7 @@ export enum LogLevel {
   Error,
   Warning,
   Info,
-  Debug
+  Debug,
 }
 
 /**
@@ -48,7 +48,6 @@ export enum LogLevel {
 export type LogOutput = (source: string | undefined, level: LogLevel, ...objects: any[]) => void;
 
 export class Logger {
-
   /**
    * Current logging level.
    * Set it to LogLevel.Off to disable logs completely.
@@ -68,7 +67,7 @@ export class Logger {
     Logger.level = LogLevel.Warning;
   }
 
-  constructor(private source?: string) { }
+  constructor(private source?: string) {}
 
   /**
    * Logs messages or objects  with the debug level.
@@ -106,8 +105,7 @@ export class Logger {
     if (level <= Logger.level) {
       const log = this.source ? ['[' + this.source + ']'].concat(objects) : objects;
       func.apply(console, log);
-      Logger.outputs.forEach(output => output.apply(output, [this.source, level, ...objects]));
+      Logger.outputs.forEach((output) => output.apply(output, [this.source, level, ...objects]));
     }
   }
-
 }

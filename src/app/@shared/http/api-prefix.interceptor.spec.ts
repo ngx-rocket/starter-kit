@@ -13,11 +13,13 @@ describe('ApiPrefixInterceptor', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [{
-        provide: HTTP_INTERCEPTORS,
-        useClass: ApiPrefixInterceptor,
-        multi: true
-      }]
+      providers: [
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: ApiPrefixInterceptor,
+          multi: true,
+        },
+      ],
     });
 
     http = TestBed.inject(HttpClient);

@@ -8,16 +8,15 @@ describe('LanguageSelectorComponent', () => {
   let component: LanguageSelectorComponent;
   let fixture: ComponentFixture<LanguageSelectorComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-        imports: [
-          TranslateModule.forRoot()
-        ],
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [TranslateModule.forRoot()],
         declarations: [LanguageSelectorComponent],
-        providers: [I18nService]
-      })
-      .compileComponents();
-  }));
+        providers: [I18nService],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LanguageSelectorComponent);

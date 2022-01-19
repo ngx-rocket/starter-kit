@@ -22,7 +22,9 @@ describe('Logger', () => {
   });
 
   afterAll(() => {
-    logMethods.forEach((m) => { console[m] = savedConsole[m]; });
+    logMethods.forEach((m) => {
+      console[m] = savedConsole[m];
+    });
     Logger.level = savedLevel;
     Logger.outputs = savedOutputs;
   });
@@ -69,7 +71,7 @@ describe('Logger', () => {
 
     // Assert
     expect(outputSpy).toHaveBeenCalled();
-      expect(outputSpy.mock.calls.length).toBe(2);
+    expect(outputSpy.mock.calls.length).toBe(2);
     expect(outputSpy).toHaveBeenCalledWith('test', LogLevel.Warning, 'w');
     expect(outputSpy).toHaveBeenCalledWith('test', LogLevel.Error, 'e', { error: true });
   });

@@ -10,10 +10,9 @@ const log = new Logger('I18nService');
 const languageKey = 'language';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class I18nService {
-
   defaultLanguage!: string;
   supportedLanguages!: string[];
 
@@ -37,8 +36,9 @@ export class I18nService {
     this.language = '';
 
     // Warning: this subscription will always be alive for the app's lifetime
-    this.langChangeSubscription = this.translateService.onLangChange
-      .subscribe((event: LangChangeEvent) => { localStorage.setItem(languageKey, event.lang); });
+    this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      localStorage.setItem(languageKey, event.lang);
+    });
   }
 
   /**
@@ -57,13 +57,15 @@ export class I18nService {
    * @param language The IETF language code to set.
    */
   set language(language: string) {
-    let newLanguage = language || localStorage.getItem(languageKey) || this.translateService.getBrowserCultureLang() || '';
+    let newLanguage =
+      language || localStorage.getItem(languageKey) || this.translateService.getBrowserCultureLang() || '';
     let isSupportedLanguage = this.supportedLanguages.includes(newLanguage);
 
     // If no exact match is found, search without the region
     if (newLanguage && !isSupportedLanguage) {
       newLanguage = newLanguage.split('-')[0];
-      newLanguage = this.supportedLanguages.find(supportedLanguage => supportedLanguage.startsWith(newLanguage)) || '';
+      newLanguage =
+        this.supportedLanguages.find((supportedLanguage) => supportedLanguage.startsWith(newLanguage)) || '';
       isSupportedLanguage = Boolean(newLanguage);
     }
 
@@ -85,5 +87,4 @@ export class I18nService {
   get language(): string {
     return this.translateService.currentLang;
   }
-
 }

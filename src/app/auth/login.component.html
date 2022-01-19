@@ -2,7 +2,7 @@
   <div class="login-box">
     <h1 translate>APP_NAME</h1>
     <div>
-      <h6 class="d-inline-block">v{{version}}</h6>
+      <h6 class="d-inline-block">v{{ version }}</h6>
       <div class="d-inline-block ml-3">
         <app-language-selector></app-language-selector>
       </div>
@@ -19,26 +19,43 @@
             </div>
             <div class="m-3">
               <label class="d-block my-3">
-                <input type="text" class="form-control" formControlName="username" autocomplete="username"
-                       [placeholder]="'Username' | translate"/>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="username"
+                  autocomplete="username"
+                  [placeholder]="'Username' | translate"
+                />
                 <span hidden translate>Username</span>
-                <small [hidden]="loginForm.controls['username'].valid || loginForm.controls['username'].untouched"
-                       class="text-danger" translate>
+                <small
+                  [hidden]="loginForm.controls['username'].valid || loginForm.controls['username'].untouched"
+                  class="text-danger"
+                  translate
+                >
                   Username is required
                 </small>
               </label>
               <label class="d-block mb-3">
-                <input type="password" class="form-control" formControlName="password" autocomplete="current-password"
-                       [placeholder]="'Password' | translate" required/>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="password"
+                  autocomplete="current-password"
+                  [placeholder]="'Password' | translate"
+                  required
+                />
                 <span hidden translate>Password</span>
-                <small [hidden]="loginForm.controls['password'].valid || loginForm.controls['password'].untouched"
-                       class="text-danger" translate>
+                <small
+                  [hidden]="loginForm.controls['password'].valid || loginForm.controls['password'].untouched"
+                  class="text-danger"
+                  translate
+                >
                   Password is required
                 </small>
               </label>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" formControlName="remember"/>
+                  <input type="checkbox" class="form-check-input" formControlName="remember" />
                   <span translate>Remember me</span>
                 </label>
               </div>

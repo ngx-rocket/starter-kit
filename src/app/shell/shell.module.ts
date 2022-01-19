@@ -10,18 +10,7 @@ import { ShellComponent } from './shell.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    NgbModule,
-    AuthModule,
-    I18nModule,
-    RouterModule
-  ],
-  declarations: [
-    HeaderComponent,
-    ShellComponent
-  ]
+  imports: [CommonModule, TranslateModule, NgbModule, AuthModule, I18nModule, RouterModule],
+  declarations: [HeaderComponent, ShellComponent],
 })
-export class ShellModule {
-}
+export class ShellModule {}
