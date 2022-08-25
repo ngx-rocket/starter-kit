@@ -1,5 +1,7 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
+
+process.env.CHROME_BIN = require('puppeteer').executablePath();
 const path = require('path');
 
 module.exports = function(config) {
@@ -30,7 +32,7 @@ module.exports = function(config) {
       suite: '' // Will become the package name attribute in xml testsuite element
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ng13'),
+      dir: require('path').join(__dirname, './coverage'),
       subdir: '.',
       reporters: [
         { type: 'html' },
