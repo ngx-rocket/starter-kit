@@ -37,7 +37,7 @@ describe('ErrorHandlerInterceptor', () => {
     // Arrange
     // Note: here we spy on private method since target is customization here,
     // but you should replace it by actual behavior in your app
-    spyOn(ErrorHandlerInterceptor.prototype as any, 'errorHandler').and.callThrough();
+    jest.spyOn(ErrorHandlerInterceptor.prototype as any, 'errorHandler');
 
     // Act
     http.get('/toto').subscribe(() => fail('should error'), () => {

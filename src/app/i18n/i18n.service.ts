@@ -2,22 +2,12 @@ import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
-import { Logger } from '@core/logger.service';
+import { Logger } from '@shared';
 import enUS from '../../translations/en-US.json';
 import frFR from '../../translations/fr-FR.json';
 
 const log = new Logger('I18nService');
 const languageKey = 'language';
-
-/**
- * Pass-through function to mark a string for translation extraction.
- * Running `npm translations:extract` will include the given string by using this.
- * @param s The string to extract for translation.
- * @return The same string.
- */
-export function extract(s: string) {
-  return s;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -67,20 +57,22 @@ export class I18nService {
    * @param language The IETF language code to set.
    */
   set language(language: string) {
-    language = language || localStorage.getItem(languageKey) || this.translateService.getBrowserCultureLang();
-    let isSupportedLanguage = this.supportedLanguages.includes(language);
+    let newLanguage = language || localStorage.getItem(languageKey) || this.translateService.getBrowserCultureLang() || '';
+    let isSupportedLanguage = this.supportedLanguages.includes(newLanguage);
 
     // If no exact match is found, search without the region
-    if (language && !isSupportedLanguage) {
-      language = language.split('-')[0];
-      language = this.supportedLanguages.find(supportedLanguage => supportedLanguage.startsWith(language)) || '';
-      isSupportedLanguage = Boolean(language);
+    if (newLanguage && !isSupportedLanguage) {
+      newLanguage = newLanguage.split('-')[0];
+      newLanguage = this.supportedLanguages.find(supportedLanguage => supportedLanguage.startsWith(newLanguage)) || '';
+      isSupportedLanguage = Boolean(newLanguage);
     }
 
     // Fallback if language is not supported
-    if (!isSupportedLanguage) {
-      language = this.defaultLanguage;
+    if (!newLanguage || !isSupportedLanguage) {
+      newLanguage = this.defaultLanguage;
     }
+
+    language = newLanguage;
 
     log.debug(`Language set to ${language}`);
     this.translateService.use(language);

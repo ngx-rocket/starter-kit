@@ -1,8 +1,7 @@
 import { Type } from '@angular/core';
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { CoreModule } from '@core';
 import { QuoteService } from './quote.service';
 
 describe('QuoteService', () => {
@@ -12,7 +11,6 @@ describe('QuoteService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        CoreModule,
         HttpClientTestingModule
       ],
       providers: [

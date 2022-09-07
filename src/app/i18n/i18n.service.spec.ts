@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 
-import { extract, I18nService } from './i18n.service';
+import { I18nService } from './i18n.service';
 
 const defaultLanguage = 'en-US';
 const supportedLanguages = ['eo', 'en-US', 'fr-FR'];
@@ -31,7 +31,7 @@ class MockTranslateService {
 describe('I18nService', () => {
   let i18nService: I18nService;
   let translateService: TranslateService;
-  let onLangChangeSpy: jasmine.Spy;
+  let onLangChangeSpy: jest.Mock;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -45,23 +45,17 @@ describe('I18nService', () => {
     translateService = TestBed.inject(TranslateService);
 
     // Create spies
-    onLangChangeSpy = jasmine.createSpy('onLangChangeSpy');
-    translateService.onLangChange
-      .subscribe((event: LangChangeEvent) => {
-        onLangChangeSpy(event.lang);
-      });
-    spyOn(translateService, 'use').and.callThrough();
+  onLangChangeSpy = jest.fn();
+  translateService.onLangChange
+    .subscribe((event: LangChangeEvent) => {
+      onLangChangeSpy(event.lang);
+    });
+  jest.spyOn(translateService, 'use');
   });
 
   afterEach(() => {
     // Cleanup
     localStorage.removeItem('language');
-  });
-
-  describe('extract', () => {
-    it('should not modify string', () => {
-      expect(extract('Hello world !')).toEqual('Hello world !');
-    });
   });
 
   describe('init', () => {
